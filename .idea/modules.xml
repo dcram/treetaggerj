@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treetaggerj.iml" filepath="$PROJECT_DIR$/.idea/modules/treetaggerj.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treetaggerj_main.iml" filepath="$PROJECT_DIR$/.idea/modules/treetaggerj_main.iml" group="treetaggerj" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/treetaggerj_test.iml" filepath="$PROJECT_DIR$/.idea/modules/treetaggerj_test.iml" group="treetaggerj" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/treetaggerj_train.iml" filepath="$PROJECT_DIR$/.idea/modules/treetaggerj_train.iml" group="treetaggerj" />
     </modules>
   </component>
 </project>

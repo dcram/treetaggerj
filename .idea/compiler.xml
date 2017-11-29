@@ -6,6 +6,7 @@
       <module name="treetagger-purej_test" target="1.8" />
       <module name="treetaggerj_main" target="1.8" />
       <module name="treetaggerj_test" target="1.8" />
+      <module name="treetaggerj_train" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

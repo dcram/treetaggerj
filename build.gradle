@@ -9,8 +9,51 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    train {
+        java {
+            srcDir 'src/train/java'
+        }
+        resources {
+            srcDir 'src/train/resources'
+        }
+        compileClasspath += sourceSets.main.runtimeClasspath
+    }
+}
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.8.0'
+
+
+    trainCompile "org.apache.uima:uimafit-core:2.3.0"
+    trainCompile 'fr.univ-nantes.julestar:uima-tokenizer:1.4'
+    trainCompile 'fr.univ-nantes.julestar:uima-tree-tagger-wrapper:1.3'
+    trainCompile "org.apache.uima:uimaj-tools:2.8.1"
+    trainCompile  "ch.qos.logback:logback-classic:1.1.7"
+    trainCompile  "ch.qos.logback:logback-classic:1.1.7"
+    trainCompile group: 'com.google.guava', name: 'guava', version: '23.5-jre'
+}
+
+
+// gradle -Plang=fr -PsrcFile=/path/to/src -PsrcFile=/path/to/target getTags
+task getTags(type: JavaExec) {
+    classpath += sourceSets.main.runtimeClasspath
+    classpath += sourceSets.train.runtimeClasspath
+    args = ["$lang","$srcFile","$targetFile"]
+    main = 'fr.dcram.treetaggerj.trainer.model.TreeTaggerTagGetter'
+}
+
+task jcasgen(type: JavaExec) {
+    description = 'Generate UIMA TS classes'
+    ext.srcFile = file("$projectDir/src/train/resources/trainer-type-system.xml")
+    ext.outputDir = file("$projectDir/src/train/java")
+    inputs.file srcFile
+    outputs.dir outputDir
+    classpath configurations.trainCompile
+    // This ensures availability of type system imports
+    // however, assumes that files are in desc subfolder
+    systemProperty 'uima.datapath', "$projectDir/desc"
+    main = 'org.apache.uima.tools.jcasgen.Jg'
+    args = ['-jcasgeninput', srcFile, '-jcasgenoutput', outputDir]
 }
