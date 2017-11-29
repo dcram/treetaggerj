@@ -13,7 +13,16 @@ public class DTree {
 		this.rootNode = root;
 	}
 
+	public DTreeNode getRootNode() {
+		return rootNode;
+	}
+
 	public ProbaTable getTable(List<Feature> features) {
 		return rootNode.getTable(features);
+	}
+
+	@Override
+	public String toString() {
+		return rootNode.toString(0);
 	}
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TrainingProbaTable implements ProbaTable {
-	Map<Tag, Double> probas = new HashMap<>();
+	Map<Tag, Integer> probas = new HashMap<>();
 
 	@Override
 	public Iterable<? extends Tag> getTags() {
@@ -14,5 +14,10 @@ public class TrainingProbaTable implements ProbaTable {
 	@Override
 	public double getProba(Tag tag) {
 		return probas.containsKey(tag) ? probas.get(tag) : 0d;
+	}
+
+	@Override
+	public Map<Tag, Integer> getMap() {
+		return probas;
 	}
 }

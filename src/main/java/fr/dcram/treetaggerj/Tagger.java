@@ -13,7 +13,7 @@ public class Tagger {
 	private TagSet tagSet;
 
 
-	private Tag beforeLast, last = tagSet.getNotAWord();
+	private Tag beforeLast, last = tagSet.getStartTag();
 
 
 	public Tag tagToken(Token token) {

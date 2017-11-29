@@ -19,6 +19,9 @@ sourceSets {
         }
         compileClasspath += sourceSets.main.runtimeClasspath
     }
+    test {
+        compileClasspath += sourceSets.train.runtimeClasspath
+    }
 }
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -31,7 +34,6 @@ dependencies {
     trainCompile 'fr.univ-nantes.julestar:uima-tree-tagger-wrapper:1.3'
     trainCompile "org.apache.uima:uimaj-tools:2.8.1"
     trainCompile  "ch.qos.logback:logback-classic:1.1.7"
-    trainCompile  "ch.qos.logback:logback-classic:1.1.7"
     trainCompile group: 'com.google.guava', name: 'guava', version: '23.5-jre'
 }
 
@@ -40,9 +42,23 @@ dependencies {
 task getTags(type: JavaExec) {
     classpath += sourceSets.main.runtimeClasspath
     classpath += sourceSets.train.runtimeClasspath
-    args = ["$lang","$srcFile","$targetFile"]
-    main = 'fr.dcram.treetaggerj.trainer.model.TreeTaggerTagGetter'
+    args = [
+            project.hasProperty("lang") ? project.getProperty("lang") : "",
+            project.hasProperty("srcFile") ? project.getProperty("srcFile") : "",
+            project.hasProperty("targetFile") ? project.getProperty("targetFile") : ""]
+    main = 'fr.dcram.treetaggerj.trainer.TreeTaggerTagGetter'
 }
+
+// gradle -PtrainingCorpus=/path/to/file -PoutputModel=/path/to/file train
+task train(type: JavaExec) {
+    classpath += sourceSets.main.runtimeClasspath
+    classpath += sourceSets.train.runtimeClasspath
+    args = [
+            project.hasProperty("trainingCorpus") ? project.getProperty("trainingCorpus") : "",
+            project.hasProperty("outputModel") ? project.getProperty("outputModel") : ""]
+    main = 'fr.dcram.treetaggerj.trainer.Trainer'
+}
+
 
 task jcasgen(type: JavaExec) {
     description = 'Generate UIMA TS classes'
