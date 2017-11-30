@@ -1,6 +1,7 @@
 package fr.dcram.treetaggerj.trainer.utils;
 
 import fr.dcram.treetaggerj.model.Feature;
+import fr.dcram.treetaggerj.model.ProbaTable;
 import fr.dcram.treetaggerj.model.Tag;
 import fr.dcram.treetaggerj.trainer.TrainingProbaTable;
 import fr.dcram.treetaggerj.trainer.Trigram;
@@ -114,5 +115,14 @@ public class Utils {
 		double iq = getIq(table1, table2);
 		double g = f * (i0 - iq);
 		return g;
+	}
+
+	public static TrainingProbaTable merge(Iterable<ProbaTable> tables) {
+		TrainingProbaTable m = new TrainingProbaTable();
+		for(ProbaTable table:tables) {
+			m.merge((TrainingProbaTable)table);
+		}
+		return m;
+
 	}
 }

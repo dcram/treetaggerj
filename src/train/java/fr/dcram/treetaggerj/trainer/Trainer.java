@@ -31,7 +31,8 @@ public class Trainer {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Trainer.class);
 	public static final String SEPARATOR = " ";
 	public static final int RECURSION_FREQUENCY_THRESHOLD = 2;
-	public static final int WEIGHTED_INFORMATION_GAIN_TH = 5;
+	public static final int DTREE_WEIGHTED_INFORMATION_GAIN_TH = 5;
+	public static final int STREE_WEIGHTED_INFORMATION_GAIN_TH = 10;
 	public static final int SUFFIX_LENGTH = 3;
 	public static final double LEXICON_FREQUENCY_THRESHOLD = .01d;
 
@@ -105,12 +106,50 @@ public class Trainer {
 				it.remove();
 		}
 		LOGGER.debug("Parsed full-form lexicon size after pruning: {}", fullformLexicon.size());
-
-		LOGGER.debug("Suffix tree nb nodes: {}", suffixTree.getNbNodes());
-		LOGGER.debug("Suffix tree nb leaves: {}", suffixTree.getNbLeaves());
-		LOGGER.debug("Suffix tree depth: {}", suffixTree.getDepth());
+		logSuffixTree(suffixTree);
+		LOGGER.info("Pruning suffix tree");
+		int nbPruned = prune(suffixTree, STREE_WEIGHTED_INFORMATION_GAIN_TH);
+		LOGGER.info("Pruned {} nodes", nbPruned);
+		logSuffixTree(suffixTree);
 
 		return new Lexicon(fullformLexicon, suffixTree);
+	}
+
+	private void logSuffixTree(SuffixTree suffixTree) {
+		LOGGER.debug("Suffix tree nb nodes: {} (getAllNodes method: {})", suffixTree.getNbNodes(),suffixTree.getAllNodes().size());
+		LOGGER.debug("Suffix tree nb leaves: {}", suffixTree.getNbLeaves());
+		LOGGER.debug("Suffix tree depth: {}", suffixTree.getDepth());
+	}
+
+	private int prune(SuffixTree suffixTree, double th) {
+		List<PrefixTreeNode<ProbaTable>> allNodes = suffixTree.getAllNodes();
+		int rem = 0;
+		for(PrefixTreeNode<ProbaTable> node:allNodes) {
+			PrefixTreeNode<ProbaTable> parent = node.getParent();
+			TrainingProbaTable table = (TrainingProbaTable)node.get();
+			if(node.isLeaf()) {
+				// G(aS) = F(aS)(I(S) - I(aS))
+				double fas = table.getTotalFrequency();
+				double ias = Utils.getI0((TrainingProbaTable)node.get());
+				TrainingProbaTable parentTable = Utils.merge(parent.getAllValues());
+				double is = Utils.getI0(parentTable);
+				double gas = fas*(is-ias);
+				if(gas < th)
+					rem += removeChildFromParent(node, parent);
+			}
+		}
+
+		return rem;
+	}
+
+	private int removeChildFromParent(PrefixTreeNode<ProbaTable> child, PrefixTreeNode<ProbaTable> parent) {
+		TrainingProbaTable ptable = (TrainingProbaTable)parent.getOrCreate(() -> new TrainingProbaTable());
+		ptable.merge((TrainingProbaTable) child.get());
+		parent.removeChild(child);
+		if(parent.getChildren().isEmpty() && parent.getParent() != null)
+			return 1 + removeChildFromParent(parent, parent.getParent());
+		else
+			return 1;
 	}
 
 	private DTree learnDTree(List<List<Token>> sequences, List<Feature> features) {
@@ -118,8 +157,8 @@ public class Trainer {
 		DTree dTree = new DTree(learnedRootNode);
 		logDTree(dTree);
 
-		LOGGER.info("Pruning dTree with threshold {} ", WEIGHTED_INFORMATION_GAIN_TH);
-		int nbPruned = prune(dTree, WEIGHTED_INFORMATION_GAIN_TH);
+		LOGGER.info("Pruning dTree with threshold {} ", DTREE_WEIGHTED_INFORMATION_GAIN_TH);
+		int nbPruned = prune(dTree, DTREE_WEIGHTED_INFORMATION_GAIN_TH);
 		LOGGER.debug("Pruned {} nodes", nbPruned);
 		logDTree(dTree);
 		return dTree;

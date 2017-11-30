@@ -2,6 +2,8 @@ package fr.dcram.treetaggerj.ptree;
 
 import fr.dcram.treetaggerj.model.ProbaTable;
 
+import java.util.List;
+
 public class SuffixTree {
 
 	private PrefixTreeNode<ProbaTable> root;
@@ -31,4 +33,7 @@ public class SuffixTree {
 		return root.getDepth();
 	}
 
+	public List<PrefixTreeNode<ProbaTable>> getAllNodes() {
+		return root.getNodes();
+	}
 }

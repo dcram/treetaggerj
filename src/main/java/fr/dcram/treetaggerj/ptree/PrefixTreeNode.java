@@ -1,7 +1,9 @@
 package fr.dcram.treetaggerj.ptree;
 
-import java.util.HashMap;
-import java.util.Map;
+import fr.dcram.treetaggerj.model.ProbaTable;
+
+import java.util.*;
+import java.util.function.Supplier;
 
 public class PrefixTreeNode<T> {
 
@@ -16,6 +18,11 @@ public class PrefixTreeNode<T> {
 
 	public PrefixTreeNode(PrefixTreeNode<T> parent) {
 		this.parent = parent;
+	}
+
+
+	public T get() {
+		return value;
 	}
 
 	public T get(String string) {
@@ -90,5 +97,56 @@ public class PrefixTreeNode<T> {
 			}
 			return 1 + depth;
 		}
+	}
+
+	public List<PrefixTreeNode<T>> getNodes() {
+		ArrayList<PrefixTreeNode<T>> thisAsList = new ArrayList<>();
+		thisAsList.add(this);
+		if(children != null)
+			for(Map.Entry<Character, PrefixTreeNode<T>> e:children.entrySet())
+				thisAsList.addAll(e.getValue().getNodes());
+		return thisAsList;
+	}
+
+	public boolean isLeaf() {
+		return children == null;
+	}
+
+	public PrefixTreeNode<T> getParent() {
+		return parent;
+	}
+
+	public List<T> getAllValues() {
+		List<T> values = new ArrayList<>();
+		if(this.value != null)
+			values.add(this.value);
+		if(children != null)
+			for(PrefixTreeNode<T> c:children.values())
+				values.addAll(c.getAllValues());
+		return values;
+	}
+
+	public T getOrCreate(Supplier<T> supplier) {
+		if(value == null)
+			value = supplier.get();
+		return value;
+	}
+
+	public void removeChild(PrefixTreeNode<T> node) {
+		if(children == null)
+			throw new IllegalStateException("Cannot remove child from a null children map");
+		Optional<Map.Entry<Character, PrefixTreeNode<T>>> childEntry = children.entrySet()
+				.stream()
+				.filter(e -> e.getValue() == node)
+				.findFirst();
+		if(!childEntry.isPresent())
+			throw new IllegalStateException("No such child for current node");
+		else {
+			children.remove(childEntry.get().getKey());
+		}
+	}
+
+	public Map<Character, PrefixTreeNode<T>> getChildren() {
+		return children;
 	}
 }
