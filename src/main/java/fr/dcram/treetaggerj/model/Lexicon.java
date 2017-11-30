@@ -9,6 +9,11 @@ public class Lexicon {
 	private Map<String, ProbaTable> lexicon;
 	private SuffixTree suffixTree;
 
+	public Lexicon(Map<String, ProbaTable> fullformLexicon, SuffixTree suffixTree) {
+		this.lexicon = fullformLexicon;
+		this.suffixTree = suffixTree;
+	}
+
 	public ProbaTable getTable(String text) {
 		if(lexicon.containsKey(text))
 			return lexicon.get(text);

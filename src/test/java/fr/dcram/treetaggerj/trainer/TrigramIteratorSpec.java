@@ -3,6 +3,7 @@ package fr.dcram.treetaggerj.trainer;
 import fr.dcram.treetaggerj.Tests;
 import fr.dcram.treetaggerj.model.Feature;
 import fr.dcram.treetaggerj.model.TagSet;
+import fr.dcram.treetaggerj.model.Token;
 import fr.dcram.treetaggerj.trainer.utils.TrigramIterator;
 import org.junit.Before;
 import org.junit.Test;
@@ -66,7 +67,8 @@ public class TrigramIteratorSpec {
 	A B B
 	B B C
 	 */
-		trigrams = Trainer.parseTrigrams(new StringReader("a_A a_B a_B a_C _A a_B a_B a_C"), tagSet);
+		List<List<Token>> sequences = Trainer.parseSequences(new StringReader("a_A a_B a_B a_C _A a_B a_B a_C"), tagSet);
+		trigrams = Trainer.toTrigrams(sequences, tagSet);
 		assertThat(trigrams)
 				.extracting("tag1.label", "tag2.label", "tag3.label")
 				.containsExactly(

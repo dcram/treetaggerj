@@ -1,6 +1,7 @@
 package fr.dcram.treetaggerj;
 
 import fr.dcram.treetaggerj.model.ProbaTable;
+import fr.dcram.treetaggerj.ptree.PrefixTreeNode;
 import fr.dcram.treetaggerj.ptree.SuffixTree;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
@@ -17,7 +18,7 @@ public class SuffixTreeSpec {
 
 	@Before
 	public void setup() {
-		suffixTree = new SuffixTree();
+		suffixTree = new SuffixTree(new PrefixTreeNode<>());
 		tableIng = Mockito.mock(ProbaTable.class);
 		tableIne = Mockito.mock(ProbaTable.class);
 		tableNne = Mockito.mock(ProbaTable.class);

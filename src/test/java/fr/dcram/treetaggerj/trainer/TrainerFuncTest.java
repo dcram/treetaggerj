@@ -2,6 +2,7 @@ package fr.dcram.treetaggerj.trainer;
 
 import fr.dcram.treetaggerj.dtree.DTree;
 import fr.dcram.treetaggerj.model.TagSet;
+import fr.dcram.treetaggerj.model.Token;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,19 +16,21 @@ public class TrainerFuncTest {
 	Trainer trainer;
 	TagSet tagSet;
 	List<Trigram> trigrams;
+	List<List<Token>> sequences;
 
 	@Before
 	public void setup() throws IOException {
 		tagSet = new TagSet();
 		trainer = new Trainer(tagSet);
 		File file = Paths.get("src/train/resources/frwikinews.tt_100").toFile();
-		trigrams = Trainer.parseTrigrams(new FileReader(file), tagSet);
+		sequences = Trainer.parseSequences(new FileReader(file), tagSet);
+		trigrams = Trainer.toTrigrams(sequences, tagSet);
 
 	}
 
 	@Test
 	public void test() {
-		DTree tree = trainer.train(trigrams);
+		DTree tree = trainer.train(sequences);
 		System.out.println(tree);
 	}
 

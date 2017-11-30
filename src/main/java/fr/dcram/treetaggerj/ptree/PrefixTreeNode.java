@@ -9,7 +9,7 @@ public class PrefixTreeNode<T> {
 	PrefixTreeNode<T> parent;
 	T value;
 
-	PrefixTreeNode() {
+	public PrefixTreeNode() {
 		// root not constructor
 		this.parent = null;
 	}
@@ -50,6 +50,45 @@ public class PrefixTreeNode<T> {
 				children.put(prefix.charAt(0), child);
 			}
 			child.add(prefix.substring(1), value);
+		}
+	}
+
+	public int getNbLeaves() {
+		if(children == null) {
+			return 1;
+		}
+		else {
+			int nbLeaves = 0;
+			for(Map.Entry<Character, PrefixTreeNode<T>> e:children.entrySet()) {
+				nbLeaves+=e.getValue().getNbLeaves();
+			}
+			return nbLeaves;
+		}
+	}
+
+	public int getNbNodes() {
+		if(children == null) {
+			return 1;
+		}
+		else {
+			int nbChildNodes = 0;
+			for(Map.Entry<Character, PrefixTreeNode<T>> e:children.entrySet()) {
+				nbChildNodes+=e.getValue().getNbNodes();
+			}
+			return 1 + nbChildNodes;
+		}
+	}
+
+	public int getDepth() {
+		if(children == null) {
+			return 1;
+		}
+		else {
+			int depth = 0;
+			for(Map.Entry<Character, PrefixTreeNode<T>> e:children.entrySet()) {
+				depth= Math.max(e.getValue().getDepth(), depth);
+			}
+			return 1 + depth;
 		}
 	}
 }

@@ -9,6 +9,8 @@ import fr.dcram.treetaggerj.dtree.DTreeNode;
 import fr.dcram.treetaggerj.dtree.FeatureDTreeNode;
 import fr.dcram.treetaggerj.dtree.LeafDTreeNode;
 import fr.dcram.treetaggerj.model.*;
+import fr.dcram.treetaggerj.ptree.PrefixTreeNode;
+import fr.dcram.treetaggerj.ptree.SuffixTree;
 import fr.dcram.treetaggerj.trainer.utils.TrigramIterator;
 import fr.dcram.treetaggerj.trainer.utils.Utils;
 import org.slf4j.Logger;
@@ -18,9 +20,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -32,6 +32,8 @@ public class Trainer {
 	public static final String SEPARATOR = " ";
 	public static final int RECURSION_FREQUENCY_THRESHOLD = 2;
 	public static final int WEIGHTED_INFORMATION_GAIN_TH = 5;
+	public static final int SUFFIX_LENGTH = 3;
+	public static final double LEXICON_FREQUENCY_THRESHOLD = .01d;
 
 	public static void main(String[] args) throws IOException {
 		String trainingCorpus = args[0];
@@ -45,15 +47,14 @@ public class Trainer {
 
 		Trainer trainer = new Trainer(tagSet);
 		Stopwatch sw = Stopwatch.createStarted();
-		List<Trigram> allTrigrams = parseTrigrams(new FileReader(trainingCorpus), tagSet);
+		List<List<Token>> sequences = parseSequences(new FileReader(trainingCorpus), tagSet);
 		sw.stop();
-		LOGGER.info("Parsed {} trigrams in {}ms", allTrigrams.size(), sw.elapsed(TimeUnit.MILLISECONDS));
+		LOGGER.info("Parsed {} sequences in {}ms", sequences.size(), sw.elapsed(TimeUnit.MILLISECONDS));
 		sw = Stopwatch.createStarted();
-		DTree dTree = trainer.train(allTrigrams);
+		trainer.train(sequences);
 		sw.stop();
 
-		LOGGER.info("Trained {} trigrams in {}sec", allTrigrams.size(), sw.elapsed(TimeUnit.SECONDS));
-
+		LOGGER.info("Trained model in {}sec", sw.elapsed(TimeUnit.SECONDS));
 
 	}
 
@@ -63,24 +64,72 @@ public class Trainer {
 		this.tagSet = tagSet;
 	}
 
-	public DTree train(List<Trigram> trigrams) {
+	public DTree train(List<List<Token>> sequences) {
 		List<Feature> features = toFeatureSet(tagSet);
-		DTree dTree = new DTree(getDecisionTreeNode(null, features, trigrams, tagSet));
-		logDTree(dTree);
+		LOGGER.info("Learning dTree");
+		DTree dTree = learnDTree(sequences, features);
 
-		LOGGER.info("Pruning dTree with threshold {} ", WEIGHTED_INFORMATION_GAIN_TH);
-		int nbPruned = prune(dTree, WEIGHTED_INFORMATION_GAIN_TH);
-		LOGGER.info("Pruned {} nodes", nbPruned);
-		logDTree(dTree);
+		LOGGER.info("Learning Lexicon");
+		Lexicon lexicon = learnLexicon(sequences);
 
 		return dTree;
 	}
 
+	private Lexicon learnLexicon(List<List<Token>> sequences) {
+		LOGGER.info("Parsing full-form lexicon");
+		SuffixTree suffixTree = new SuffixTree(new PrefixTreeNode<ProbaTable>());
+		Map<String, ProbaTable> fullformLexicon = new HashMap<>();
+		int nbTokens = 0;
+		String text, suffix;
+		for(List<Token> sequence:sequences) {
+			for(Token tok:sequence) {
+				nbTokens++;
+				text = tok.getText();
+				if(!fullformLexicon.containsKey(text))
+					fullformLexicon.put(text, new TrainingProbaTable());
+				((TrainingProbaTable)fullformLexicon.get(text)).add(tok.getTag());
+
+				if(text.length() >= SUFFIX_LENGTH) {
+					suffix = text.substring(Math.max(0, text.length()- SUFFIX_LENGTH)).toLowerCase();
+					if(suffixTree.get(suffix) == null)
+						suffixTree.add(suffix, new TrainingProbaTable());
+					((TrainingProbaTable)suffixTree.get(suffix)).add(tok.getTag());
+				}
+			}
+		}
+		LOGGER.debug("Parsed full-form lexicon size: {}", fullformLexicon.size());
+		int frequencyThreshold = (int)(LEXICON_FREQUENCY_THRESHOLD * nbTokens);
+		for(Iterator<Map.Entry<String, ProbaTable>> it = fullformLexicon.entrySet().iterator(); it.hasNext(); ) {
+			Map.Entry<String, ProbaTable> entry = it.next();
+			if(entry.getValue().getTotalFrequency() <= frequencyThreshold)
+				it.remove();
+		}
+		LOGGER.debug("Parsed full-form lexicon size after pruning: {}", fullformLexicon.size());
+
+		LOGGER.debug("Suffix tree nb nodes: {}", suffixTree.getNbNodes());
+		LOGGER.debug("Suffix tree nb leaves: {}", suffixTree.getNbLeaves());
+		LOGGER.debug("Suffix tree depth: {}", suffixTree.getDepth());
+
+		return new Lexicon(fullformLexicon, suffixTree);
+	}
+
+	private DTree learnDTree(List<List<Token>> sequences, List<Feature> features) {
+		DTreeNode learnedRootNode = getDecisionTreeNode(null, features, toTrigrams(sequences, tagSet), tagSet);
+		DTree dTree = new DTree(learnedRootNode);
+		logDTree(dTree);
+
+		LOGGER.info("Pruning dTree with threshold {} ", WEIGHTED_INFORMATION_GAIN_TH);
+		int nbPruned = prune(dTree, WEIGHTED_INFORMATION_GAIN_TH);
+		LOGGER.debug("Pruned {} nodes", nbPruned);
+		logDTree(dTree);
+		return dTree;
+	}
+
 	private void logDTree(DTree dTree) {
-		LOGGER.info("Nb nodes : {} (NodeIterator method: {})", dTree.getNbNodes(), Iterators.size(dTree.nodeIterator()));
-		LOGGER.info("Nb leaves: {} ", dTree.getLeaves());
-		LOGGER.info("Nb features nodes: {} ", dTree.getFNodes());
-		LOGGER.info("Depth: {} ", dTree.getDepth());
+		LOGGER.debug("Nb nodes : {} (NodeIterator method: {})", dTree.getNbNodes(), Iterators.size(dTree.nodeIterator()));
+		LOGGER.debug("Nb leaves: {} ", dTree.getLeaves());
+		LOGGER.debug("Nb features nodes: {} ", dTree.getFNodes());
+		LOGGER.debug("Depth: {} ", dTree.getDepth());
 	}
 
 	private DTreeNode getDecisionTreeNode(DTreeNode parent, List<Feature> features, List<Trigram> trigrams, TagSet tagSet) {
@@ -147,12 +196,11 @@ public class Trainer {
 		return features;
 	}
 
-	public static List<Trigram> parseTrigrams(Reader trainingCorpus, TagSet tagSet) throws IOException {
+	public static List<List<Token>> parseSequences(Reader trainingCorpus, TagSet tagSet) throws IOException {
+		List<List<Token>> sequences = new ArrayList<>();
 		String text;
-		List<Trigram> allTrigrams = new ArrayList<>();
 		BufferedReader br = new BufferedReader(trainingCorpus);
-		int line = 0;
-		LOGGER.debug("Starts parsing trigrams");
+		LOGGER.debug("Starting training corpus parsing");
 		while((text = br.readLine())!=null) {
 			List<Token> tokens = Splitter.on(SEPARATOR).splitToList(text)
 					.stream()
@@ -160,10 +208,18 @@ public class Trainer {
 					.filter(str -> !str.isEmpty())
 					.map(string -> Token.parse(string, tagSet))
 					.collect(Collectors.toList());
-			for(int i = 0; i < tokens.size(); i++) {
-				Tag tag1 = (i < 2) ? tagSet.getStartTag() : tokens.get(i-2).getTag();
-				Tag tag2 = (i < 1) ? tagSet.getStartTag() : tokens.get(i-1).getTag();
-				Tag tag3 = tokens.get(i).getTag();
+			sequences.add(tokens);
+		}
+		return sequences;
+	}
+
+	public static List<Trigram> toTrigrams(List<List<Token>> sequences, TagSet tagSet) {
+		List<Trigram> allTrigrams = new ArrayList<>();
+		for(List<Token> sequence:sequences) {
+			for(int i = 0; i < sequence.size(); i++) {
+				Tag tag1 = (i < 2) ? tagSet.getStartTag() : sequence.get(i-2).getTag();
+				Tag tag2 = (i < 1) ? tagSet.getStartTag() : sequence.get(i-1).getTag();
+				Tag tag3 = sequence.get(i).getTag();
 				allTrigrams.add(new Trigram(tag1, tag2, tag3));
 			}
 		}
