@@ -22,4 +22,9 @@ public class Lexicon {
 		else
 			return suffixTree.get(text.toLowerCase());
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Lexicon[fullforms:%s, suffixTree:%s]", lexicon.size(),suffixTree );
+	}
 }

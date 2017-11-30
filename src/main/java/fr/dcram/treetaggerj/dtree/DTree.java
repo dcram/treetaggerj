@@ -24,7 +24,7 @@ public class DTree {
 
 	@Override
 	public String toString() {
-		return rootNode.toString(0);
+		return String.format("DTree[nodes: %d, leaves: %d,depth: %d]", rootNode.getNbNodes(), rootNode.getNbLeaves(), rootNode.getDepth());
 	}
 
 	public int getNbNodes() {

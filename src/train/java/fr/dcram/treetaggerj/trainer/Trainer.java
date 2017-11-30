@@ -4,6 +4,7 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
+import fr.dcram.treetaggerj.TreeTaggerModel;
 import fr.dcram.treetaggerj.dtree.DTree;
 import fr.dcram.treetaggerj.dtree.DTreeNode;
 import fr.dcram.treetaggerj.dtree.FeatureDTreeNode;
@@ -54,9 +55,10 @@ public class Trainer {
 		sw.stop();
 		LOGGER.info("Parsed {} sequences in {}ms", sequences.size(), sw.elapsed(TimeUnit.MILLISECONDS));
 		sw = Stopwatch.createStarted();
-		trainer.train(sequences);
+		TreeTaggerModel model = trainer.train(sequences);
 		sw.stop();
 
+		LOGGER.info("Model: {}", model);
 		LOGGER.info("Trained model in {}sec", sw.elapsed(TimeUnit.SECONDS));
 
 	}
@@ -67,7 +69,7 @@ public class Trainer {
 		this.tagSet = tagSet;
 	}
 
-	public DTree train(List<List<Token>> sequences) {
+	public TreeTaggerModel train(List<List<Token>> sequences) {
 		List<Feature> features = toFeatureSet(tagSet);
 		LOGGER.info("Learning dTree");
 		DTree dTree = learnDTree(sequences, features);
@@ -75,7 +77,7 @@ public class Trainer {
 		LOGGER.info("Learning Lexicon");
 		Lexicon lexicon = learnLexicon(sequences);
 
-		return dTree;
+		return new TreeTaggerModel(lexicon, dTree);
 	}
 
 	private Lexicon learnLexicon(List<List<Token>> sequences) {
@@ -123,14 +125,16 @@ public class Trainer {
 				.sorted((e1, e2) -> Integer.compare(e2.getValue().getTotalFrequency(), e1.getValue().getTotalFrequency()))
 				.skip(LEXICON_FULLFORM_MAX_SIZE)
 				.findFirst();
-		int fTh = nth.get().getValue().getTotalFrequency();
+		int fTh = nth.isPresent() ?
+				nth.get().getValue().getTotalFrequency()
+				:LEXICON_ABSOLUTE_FREQUENCY_THRESHOLD;
 		LOGGER.debug("Fullforms frequency th at rank {}: {}",
 				LEXICON_FULLFORM_MAX_SIZE,
 				fTh);
 
 		for(Iterator<Map.Entry<String, ProbaTable>> it = fullformLexicon.entrySet().iterator(); it.hasNext(); ) {
 			Map.Entry<String, ProbaTable> entry = it.next();
-			if(entry.getValue().getTotalFrequency() <= Math.max(LEXICON_ABSOLUTE_FREQUENCY_THRESHOLD, fTh))
+			if(entry.getValue().getTotalFrequency() <=fTh)
 				it.remove();
 			else {
 				TrainingProbaTable ptable = (TrainingProbaTable)entry.getValue();

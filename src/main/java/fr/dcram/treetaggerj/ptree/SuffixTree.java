@@ -36,4 +36,9 @@ public class SuffixTree {
 	public List<PrefixTreeNode<ProbaTable>> getAllNodes() {
 		return root.getNodes();
 	}
+
+	@Override
+	public String toString() {
+		return String.format("SuffixTree[nodes: %d, leaves: %d]", root.getNbNodes(), root.getNbLeaves());
+	}
 }
