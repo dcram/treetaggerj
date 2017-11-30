@@ -88,7 +88,7 @@ public class PrefixTreeNode<T> {
 
 	public int getDepth() {
 		if(children == null) {
-			return 1;
+			return 0;
 		}
 		else {
 			int depth = 0;

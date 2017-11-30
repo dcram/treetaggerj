@@ -33,8 +33,10 @@ public class Trainer {
 	public static final int RECURSION_FREQUENCY_THRESHOLD = 2;
 	public static final int DTREE_WEIGHTED_INFORMATION_GAIN_TH = 5;
 	public static final int STREE_WEIGHTED_INFORMATION_GAIN_TH = 10;
-	public static final int SUFFIX_LENGTH = 3;
-	public static final double LEXICON_FREQUENCY_THRESHOLD = .01d;
+	public static final int SUFFIX_LENGTH = 5;
+	public static final double LEXICON_TEXT_TAG_THRESHOLD = .01d;
+	public static final int LEXICON_ABSOLUTE_FREQUENCY_THRESHOLD = 1;
+	public static final int LEXICON_FULLFORM_MAX_SIZE = 10000;
 
 	public static void main(String[] args) throws IOException {
 		String trainingCorpus = args[0];
@@ -99,12 +101,12 @@ public class Trainer {
 			}
 		}
 		LOGGER.debug("Parsed full-form lexicon size: {}", fullformLexicon.size());
-		int frequencyThreshold = (int)(LEXICON_FREQUENCY_THRESHOLD * nbTokens);
-		for(Iterator<Map.Entry<String, ProbaTable>> it = fullformLexicon.entrySet().iterator(); it.hasNext(); ) {
-			Map.Entry<String, ProbaTable> entry = it.next();
-			if(entry.getValue().getTotalFrequency() <= frequencyThreshold)
-				it.remove();
-		}
+
+
+		LOGGER.info("Pruning full-form lexicon");
+		prune(fullformLexicon);
+
+
 		LOGGER.debug("Parsed full-form lexicon size after pruning: {}", fullformLexicon.size());
 		logSuffixTree(suffixTree);
 		LOGGER.info("Pruning suffix tree");
@@ -113,6 +115,34 @@ public class Trainer {
 		logSuffixTree(suffixTree);
 
 		return new Lexicon(fullformLexicon, suffixTree);
+	}
+
+	private void prune(Map<String, ProbaTable> fullformLexicon) {
+		List<Map.Entry<String, ProbaTable>> fullforms = Lists.newArrayList(fullformLexicon.entrySet());
+		Optional<Map.Entry<String, ProbaTable>> nth = fullforms.stream()
+				.sorted((e1, e2) -> Integer.compare(e2.getValue().getTotalFrequency(), e1.getValue().getTotalFrequency()))
+				.skip(LEXICON_FULLFORM_MAX_SIZE)
+				.findFirst();
+		int fTh = nth.get().getValue().getTotalFrequency();
+		LOGGER.debug("Fullforms frequency th at rank {}: {}",
+				LEXICON_FULLFORM_MAX_SIZE,
+				fTh);
+
+		for(Iterator<Map.Entry<String, ProbaTable>> it = fullformLexicon.entrySet().iterator(); it.hasNext(); ) {
+			Map.Entry<String, ProbaTable> entry = it.next();
+			if(entry.getValue().getTotalFrequency() <= Math.max(LEXICON_ABSOLUTE_FREQUENCY_THRESHOLD, fTh))
+				it.remove();
+			else {
+				TrainingProbaTable ptable = (TrainingProbaTable)entry.getValue();
+				Set<Tag> remTags = ptable.getMap().entrySet().stream()
+						.filter(e -> ptable.getProba(e.getKey()) <= LEXICON_TEXT_TAG_THRESHOLD)
+						.map(e -> e.getKey())
+						.collect(Collectors.toSet() );
+				for(Tag r:remTags)
+					ptable.remove(r);
+
+			}
+		}
 	}
 
 	private void logSuffixTree(SuffixTree suffixTree) {

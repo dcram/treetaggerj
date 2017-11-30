@@ -54,4 +54,9 @@ public class TrainingProbaTable implements ProbaTable {
 	public int getTotalFrequency() {
 		return total.intValue();
 	}
+
+	public void remove(Tag r) {
+		if(map.containsKey(r))
+			total.getAndAdd(map.remove(r).intValue());
+	}
 }

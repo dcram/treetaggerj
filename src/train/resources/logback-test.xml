@@ -13,7 +13,7 @@
 	<appender-ref ref="STDOUT" />
 </logger>
 
-  <logger name="fr.sparklane.nlp.api" level="info"
+  <logger name="fr.dcram.treetaggerj.trainer" level="debug"
           additivity="false">
     <appender-ref ref="STDOUT" />
   </logger>
