@@ -32,6 +32,26 @@ public class FeatureDTreeNode extends DTreeNode {
 				);
 	}
 
+	@Override
+	public int getNbNodes() {
+		return 1 + yes.getNbNodes() + no.getNbNodes();
+	}
+
+	@Override
+	public int getNbFNodes() {
+		return 1 + yes.getNbFNodes() + no.getNbFNodes();
+	}
+
+	@Override
+	public int getNbLeaves() {
+		return yes.getNbLeaves() + no.getNbLeaves();
+	}
+
+	@Override
+	public int getDepth() {
+		return 1 + Math.max(yes.getDepth(), no.getDepth());
+	}
+
 
 	public Feature getFeature() {
 		return feature;

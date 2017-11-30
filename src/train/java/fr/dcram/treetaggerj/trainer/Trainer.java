@@ -1,11 +1,15 @@
 package fr.dcram.treetaggerj.trainer;
 
 import com.google.common.base.Splitter;
+import com.google.common.base.Stopwatch;
+import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
 import fr.dcram.treetaggerj.dtree.DTree;
 import fr.dcram.treetaggerj.dtree.DTreeNode;
 import fr.dcram.treetaggerj.dtree.FeatureDTreeNode;
 import fr.dcram.treetaggerj.dtree.LeafDTreeNode;
 import fr.dcram.treetaggerj.model.*;
+import fr.dcram.treetaggerj.trainer.utils.TrigramIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,8 +17,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Trainer {
@@ -34,10 +39,20 @@ public class Trainer {
 		TagSet tagSet = new TagSet();
 
 		Trainer trainer = new Trainer(tagSet);
+		Stopwatch sw = Stopwatch.createStarted();
 		List<Trigram> allTrigrams = parseTrigrams(new FileReader(trainingCorpus), tagSet);
-		LOGGER.info("Parsed {} trigrams", allTrigrams.size());
+		sw.stop();
+		LOGGER.info("Parsed {} trigrams in {}ms", allTrigrams.size(), sw.elapsed(TimeUnit.MILLISECONDS));
+		sw = Stopwatch.createStarted();
 		DTree dTree = trainer.train(allTrigrams);
-		System.out.println(dTree);
+		sw.stop();
+		LOGGER.info("Trained {} trigrams in {}sec", allTrigrams.size(), sw.elapsed(TimeUnit.SECONDS));
+
+		LOGGER.info("Nb nodes : {} ", dTree.getNbNodes());
+		LOGGER.info("Nb leaves: {} ", dTree.getLeaves());
+		LOGGER.info("Nb fnode: {} ", dTree.getFNodes());
+		LOGGER.info("Depth: {} ", dTree.getDepth());
+
 	}
 
 	private TagSet tagSet;
@@ -54,19 +69,27 @@ public class Trainer {
 
 	private DTreeNode getDecisionTreeNode(List<Feature> features, List<Trigram> trigrams, TagSet tagSet) {
 		Feature best = selectBestFeature(features, trigrams, tagSet);
-		List<List<Trigram>> partition = partition(best, trigrams);
-		List<Trigram> l_ok = partition.get(0);
-		List<Trigram> l_ko = partition.get(1);
-		if(l_ko.size() <= RECURSION_FREQUENCY_THRESHOLD || l_ok.size() <= RECURSION_FREQUENCY_THRESHOLD) {
+		int nb_ok = Iterators.size(new TrigramIterator(trigrams.iterator(), best, true));
+		int nb_ko = trigrams.size() - nb_ok;
+		if(nb_ok <= RECURSION_FREQUENCY_THRESHOLD || nb_ko <= RECURSION_FREQUENCY_THRESHOLD) {
 			return new LeafDTreeNode(toPTable(trigrams));
 		} else {
 			List<Feature> newFeatureSet = new ArrayList<>();
 			newFeatureSet.addAll(features);
 			newFeatureSet.remove(best);
+
+			DTreeNode yesNode = getDecisionTreeNode(
+					newFeatureSet,
+					Lists.newArrayList(new TrigramIterator(trigrams.iterator(), best, true)),
+					tagSet);
+			DTreeNode noNode = getDecisionTreeNode(
+					newFeatureSet,
+					Lists.newArrayList(new TrigramIterator(trigrams.iterator(), best, false)),
+					tagSet);
 			return new FeatureDTreeNode(
 					best,
-					getDecisionTreeNode(newFeatureSet, l_ok, tagSet),
-					getDecisionTreeNode(newFeatureSet, l_ko, tagSet)
+					yesNode,
+					noNode
 				);
 		}
 	}
@@ -91,50 +114,65 @@ public class Trainer {
 		return best;
 	}
 
-	private static List<List<Trigram>> partition(Feature feature, List<Trigram> trigrams) {
-		List<List<Trigram>> partition = new ArrayList<>(2);
-		List<Trigram> l_ok = new ArrayList<>();
-		List<Trigram> l_ko = new ArrayList<>();
-		for(Trigram trigram:trigrams) {
-			if(hasFeature(trigram, feature))
-				l_ok.add(trigram);
-			else
-				l_ko.add(trigram);
-		}
-		partition.add(l_ok);
-		partition.add(l_ko);
-		return partition;
-	}
+//	private static List<List<Trigram>> partition(Feature feature, List<Trigram> trigrams) {
+//		List<List<Trigram>> partition = new ArrayList<>(2);
+//		List<Trigram> l_ok = new ArrayList<>();
+//		List<Trigram> l_ko = new ArrayList<>();
+//		for(Trigram trigram:trigrams) {
+//			if(trigram.hasFeature(feature))
+//				l_ok.add(trigram);
+//			else
+//				l_ko.add(trigram);
+//		}
+//		partition.add(l_ok);
+//		partition.add(l_ko);
+//		return partition;
+//	}
 
 	public static double computeFeatureInformation(Feature feature, List<Trigram> trigrams, TagSet tagSet) {
-		List<List<Trigram>> partition = partition(feature, trigrams);
-		List<Trigram> l_ok = partition.get(0);
-		List<Trigram> l_ko = partition.get(1);
-		double p_ok = ((double)l_ok.size())/trigrams.size();
-		double p_ko = 1 - p_ok;
 
-		double sum_ok = tagSet.getTags().stream().map(tag -> plogp(tag, l_ok)).mapToDouble(Double::doubleValue).sum();
-		double sum_ko = tagSet.getTags().stream().map(tag -> plogp(tag, l_ko)).mapToDouble(Double::doubleValue).sum();
+//		double sum_ok = getInformation(tagSet, new TrigramIterator(trigrams.iterator(), feature, true));
+//		double sum_ko = getInformation(tagSet, new TrigramIterator(trigrams.iterator(), feature, false));
+
+		int total_ok = 0, total_ko = 0;
+		Map<Tag, AtomicInteger> counter_ok = new HashMap<>(), counter_ko = new HashMap<>();
+		for(Trigram trigram:trigrams) {
+			if(trigram.hasFeature(feature)) {
+				total_ok++;
+				countTrigram(counter_ok, trigram);
+			} else {
+				total_ko++;
+				countTrigram(counter_ko, trigram);
+			}
+		}
+		double p_ok = ((double)total_ok)/trigrams.size();
+		double p_ko = 1 - p_ok;
+		double sum_ok = plogpsum(counter_ok, total_ok);
+		double sum_ko = plogpsum(counter_ko, total_ko);
+
+
 		double info = - p_ok * sum_ok -  p_ko * sum_ko;
 		return info;
 	}
 
-	private static double plogp(Tag tag, List<Trigram> context) {
-		long cnt = context.stream().filter(t->t.getTag3().equals(tag)).count();
-		double p = ((double)cnt)/context.size();
-		double v = cnt == 0 ? 0d : p * (Math.log(p) / Math.log(2));
-		return v;
-	}
-
-	private static boolean hasFeature(Trigram trigram, Feature feature) {
-		if(feature.getBackPosition() == 2)
-			return trigram.getTag1().equals(feature.getTag());
-		else if(feature.getBackPosition() == 1)
-			return trigram.getTag2().equals(feature.getTag());
+	private static void countTrigram(Map<Tag, AtomicInteger> counter_ok, Trigram trigram) {
+		if(!counter_ok.containsKey(trigram.getTag3()))
+			counter_ok.put(trigram.getTag3(), new AtomicInteger(1));
 		else
-			throw new IllegalStateException();
-
+			counter_ok.get(trigram.getTag3()).incrementAndGet();
 	}
+
+	private static double plogpsum(Map<Tag, AtomicInteger> counter, int total) {
+		double sum = 0;
+		for(Map.Entry<Tag, AtomicInteger> e:counter.entrySet())
+			sum += plogp(((double)e.getValue().intValue())/total);
+		return sum;
+	}
+
+	private static double plogp(double v) {
+		return v == 0 ? 0d : v * (Math.log(v) / Math.log(2));
+	}
+
 
 	private static List<Feature> toFeatureSet(TagSet tagSet) {
 		List<Feature> features = new ArrayList<>(tagSet.size()*2);

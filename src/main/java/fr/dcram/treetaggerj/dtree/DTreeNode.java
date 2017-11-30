@@ -16,4 +16,8 @@ public abstract class DTreeNode {
 		return String.join("", Collections.nCopies(depth, "\t"));
 	}
 
+	public abstract int getNbNodes();
+	public abstract int getNbFNodes();
+	public abstract int getNbLeaves();
+	public abstract int getDepth();
 }

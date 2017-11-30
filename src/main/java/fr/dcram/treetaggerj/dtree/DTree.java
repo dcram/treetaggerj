@@ -25,4 +25,20 @@ public class DTree {
 	public String toString() {
 		return rootNode.toString(0);
 	}
+
+	public int getNbNodes() {
+		return rootNode.getNbNodes();
+	}
+
+	public int getLeaves() {
+		return rootNode.getNbLeaves();
+	}
+
+	public int getFNodes() {
+		return rootNode.getNbFNodes();
+	}
+
+	public int getDepth() {
+		return rootNode.getDepth();
+	}
 }

@@ -26,4 +26,8 @@ public class Utils {
 			is.close();
 		}
 	}
+
+	public static  double plogp(double x) {
+		return x == 0d ? 0 : x*Math.log(x)/Math.log(2);
+	}
 }

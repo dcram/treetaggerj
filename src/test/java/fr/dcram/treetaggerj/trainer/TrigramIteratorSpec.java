@@ -1,6 +1,9 @@
 package fr.dcram.treetaggerj.trainer;
 
+import fr.dcram.treetaggerj.Tests;
+import fr.dcram.treetaggerj.model.Feature;
 import fr.dcram.treetaggerj.model.TagSet;
+import fr.dcram.treetaggerj.trainer.utils.TrigramIterator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,12 +11,10 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
 
-import static fr.dcram.treetaggerj.Tests.feature;
-import static fr.dcram.treetaggerj.trainer.utils.Utils.plogp;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;
 
-public class TrainerSpec {
+public class TrigramIteratorSpec {
 
 	Trainer trainer;
 	TagSet tagSet;
@@ -26,41 +27,32 @@ public class TrainerSpec {
 	}
 
 	@Test
-	public void testParseTrigrams() throws IOException {
-		trigrams = Trainer.parseTrigrams(new StringReader("À_PRP la_DET:ART suite_NOM de_PRP la_DET:ART parution_NOM le_DET:ART matin_NOM ._SENT"), tagSet);
-		assertThat(trigrams)
+	public void testHas() throws IOException {
+		getTrigrams();
+		TrigramIterator trigramIterator = new TrigramIterator(trigrams.iterator(), Tests.feature("A", 1), true);
+		assertThat(trigramIterator)
 				.extracting("tag1.label", "tag2.label", "tag3.label")
 				.containsExactly(
-						tuple("START", "START", "PRP"),
-						tuple("START", "PRP", "DET:ART"),
-						tuple("PRP", "DET:ART", "NOM"),
-						tuple("DET:ART", "NOM", "PRP"),
-						tuple("NOM", "PRP", "DET:ART"),
-						tuple("PRP", "DET:ART", "NOM"),
-						tuple("DET:ART", "NOM", "DET:ART"),
-						tuple("NOM", "DET:ART", "NOM"),
-						tuple("DET:ART", "NOM", "SENT")
+						tuple("START", "A", "B"),
+						tuple("C", "A", "B")
 				);
 	}
 
 	@Test
-	public void testComputeInformation() throws IOException {
+	public void testDoesNotHave() throws IOException {
 		getTrigrams();
-		double information = Trainer.computeFeatureInformation(feature("A", 1), trigrams, tagSet);
-		double expected = -0.25*(
-								plogp(1)//B
-							) - 0.75 * (
-								plogp(2d/6)//A
-							 +  plogp(2d/6)//B
-							 +  plogp(2d/6)//C
-							);
-		assertThat(information)
-				.isEqualTo(expected)
-				.isEqualTo(1.188721875540867)
-		;
+		TrigramIterator trigramIterator = new TrigramIterator(trigrams.iterator(), Tests.feature("A", 1), false);
+		assertThat(trigramIterator)
+				.extracting("tag1.label", "tag2.label", "tag3.label")
+				.containsExactly(
+						tuple("START", "START", "A"),
+						tuple("A", "B", "B"),
+						tuple("B", "B", "C"),
+						tuple("B", "C", "A"),
+						tuple("A", "B", "B"),
+						tuple("B", "B", "C")
+				);
 	}
-
-
 
 	private void getTrigrams() throws IOException {
 	/*
