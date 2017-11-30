@@ -1,14 +1,23 @@
 package fr.dcram.treetaggerj.dtree;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.dcram.treetaggerj.model.Feature;
 import fr.dcram.treetaggerj.model.ProbaTable;
 
 import java.util.List;
 
+@JsonIgnoreProperties({"depth", "nbLeaves", "nbNodes", "nbFNodes"} )
 public class FeatureDTreeNode extends DTreeNode {
 
+
+	@JsonProperty("test")
 	private Feature feature;
+
+	@JsonProperty("yes")
 	private DTreeNode yes;
+
+	@JsonProperty("no")
 	private DTreeNode no;
 
 	public FeatureDTreeNode(DTreeNode parent, Feature feature, DTreeNode yes, DTreeNode no) {

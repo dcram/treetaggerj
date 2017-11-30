@@ -1,12 +1,16 @@
 package fr.dcram.treetaggerj.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.dcram.treetaggerj.ptree.SuffixTree;
 
 import java.util.Map;
 
 public class Lexicon {
 
+	@JsonProperty("fullforms")
 	private Map<String, ProbaTable> lexicon;
+
+	@JsonProperty("suffix-tree")
 	private SuffixTree suffixTree;
 
 	public Lexicon(Map<String, ProbaTable> fullformLexicon, SuffixTree suffixTree) {

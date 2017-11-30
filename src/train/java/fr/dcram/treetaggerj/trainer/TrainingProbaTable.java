@@ -1,14 +1,20 @@
 package fr.dcram.treetaggerj.trainer;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.dcram.treetaggerj.model.ProbaTable;
 import fr.dcram.treetaggerj.model.Tag;
+import fr.dcram.treetaggerj.trainer.utils.TrainingTableSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@JsonSerialize(using = TrainingTableSerializer.class)
 public class TrainingProbaTable implements ProbaTable {
+
+
 	private Map<Tag, AtomicInteger> map = new HashMap<>();
+
 	private AtomicInteger total = new AtomicInteger(0);
 
 

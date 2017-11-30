@@ -14,13 +14,11 @@ import fr.dcram.treetaggerj.ptree.PrefixTreeNode;
 import fr.dcram.treetaggerj.ptree.SuffixTree;
 import fr.dcram.treetaggerj.trainer.utils.TrigramIterator;
 import fr.dcram.treetaggerj.trainer.utils.Utils;
+import fr.dcram.treetaggerj.util.TreeTaggerModelIO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -60,7 +58,8 @@ public class Trainer {
 
 		LOGGER.info("Model: {}", model);
 		LOGGER.info("Trained model in {}sec", sw.elapsed(TimeUnit.SECONDS));
-
+		LOGGER.info("Writing model to {}", outputModel);
+		TreeTaggerModelIO.save(model, new FileWriter(outputModel));
 	}
 
 	private TagSet tagSet;

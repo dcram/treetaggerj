@@ -1,14 +1,22 @@
 package fr.dcram.treetaggerj.ptree;
 
-import fr.dcram.treetaggerj.model.ProbaTable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.*;
 import java.util.function.Supplier;
 
+@JsonIgnoreProperties({"depth", "nbLeaves", "nbNodes", "allNodes"} )
 public class PrefixTreeNode<T> {
 
+	@JsonProperty("children")
 	Map<Character, PrefixTreeNode<T>> children;
+
+	@JsonIgnore
 	PrefixTreeNode<T> parent;
+
+	@JsonProperty("ptable")
 	T value;
 
 	public PrefixTreeNode() {

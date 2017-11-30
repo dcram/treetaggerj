@@ -1,14 +1,14 @@
 package fr.dcram.treetaggerj.trainer;
 
+import fr.dcram.treetaggerj.TreeTaggerModel;
 import fr.dcram.treetaggerj.dtree.DTree;
 import fr.dcram.treetaggerj.model.TagSet;
 import fr.dcram.treetaggerj.model.Token;
+import fr.dcram.treetaggerj.util.TreeTaggerModelIO;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -29,9 +29,10 @@ public class TrainerFuncTest {
 	}
 
 	@Test
-	public void test() {
-		DTree tree = trainer.train(sequences);
-		System.out.println(tree);
+	public void test() throws IOException {
+		TreeTaggerModel model = trainer.train(sequences);
+		System.out.println(model);
+		TreeTaggerModelIO.save(model, new PrintWriter(System.out));
 	}
 
 }

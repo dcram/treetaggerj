@@ -1,9 +1,12 @@
 package fr.dcram.treetaggerj.ptree;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import fr.dcram.treetaggerj.model.ProbaTable;
 
 import java.util.List;
 
+
+@JsonIgnoreProperties({"depth", "nbLeaves", "nbNodes", "allNodes"} )
 public class SuffixTree {
 
 	private PrefixTreeNode<ProbaTable> root;

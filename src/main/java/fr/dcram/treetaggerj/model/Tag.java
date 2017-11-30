@@ -1,5 +1,6 @@
 package fr.dcram.treetaggerj.model;
 
+
 public class Tag {
 	private int id;
 	private String label;

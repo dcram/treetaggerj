@@ -1,5 +1,9 @@
 package fr.dcram.treetaggerj.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import fr.dcram.treetaggerj.util.FeatureSerializer;
+
+@JsonSerialize(using = FeatureSerializer.class)
 public class Feature {
 	private Tag tag;
 	private int backPosition;
