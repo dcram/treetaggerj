@@ -34,4 +34,5 @@ public abstract class DTreeNode {
 	public void setParent(FeatureDTreeNode parent) {
 		this.parent = parent;
 	}
+
 }

@@ -10,6 +10,7 @@ import fr.dcram.treetaggerj.dtree.FeatureDTreeNode;
 import fr.dcram.treetaggerj.dtree.LeafDTreeNode;
 import fr.dcram.treetaggerj.model.*;
 import fr.dcram.treetaggerj.trainer.utils.TrigramIterator;
+import fr.dcram.treetaggerj.trainer.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,16 +18,20 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+
+import static fr.dcram.treetaggerj.trainer.utils.Utils.getIq;
 
 public class Trainer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Trainer.class);
 	public static final String SEPARATOR = " ";
 	public static final int RECURSION_FREQUENCY_THRESHOLD = 2;
+	public static final int WEIGHTED_INFORMATION_GAIN_TH = 5;
 
 	public static void main(String[] args) throws IOException {
 		String trainingCorpus = args[0];
@@ -46,12 +51,9 @@ public class Trainer {
 		sw = Stopwatch.createStarted();
 		DTree dTree = trainer.train(allTrigrams);
 		sw.stop();
+
 		LOGGER.info("Trained {} trigrams in {}sec", allTrigrams.size(), sw.elapsed(TimeUnit.SECONDS));
 
-		LOGGER.info("Nb nodes : {} ", dTree.getNbNodes());
-		LOGGER.info("Nb leaves: {} ", dTree.getLeaves());
-		LOGGER.info("Nb fnode: {} ", dTree.getFNodes());
-		LOGGER.info("Depth: {} ", dTree.getDepth());
 
 	}
 
@@ -63,34 +65,54 @@ public class Trainer {
 
 	public DTree train(List<Trigram> trigrams) {
 		List<Feature> features = toFeatureSet(tagSet);
-		DTree dTree = new DTree(getDecisionTreeNode(features, trigrams, tagSet));
+		DTree dTree = new DTree(getDecisionTreeNode(null, features, trigrams, tagSet));
+		logDTree(dTree);
+
+		LOGGER.info("Pruning dTree with threshold {} ", WEIGHTED_INFORMATION_GAIN_TH);
+		int nbPruned = prune(dTree, WEIGHTED_INFORMATION_GAIN_TH);
+		LOGGER.info("Pruned {} nodes", nbPruned);
+		logDTree(dTree);
+
 		return dTree;
 	}
 
-	private DTreeNode getDecisionTreeNode(List<Feature> features, List<Trigram> trigrams, TagSet tagSet) {
+	private void logDTree(DTree dTree) {
+		LOGGER.info("Nb nodes : {} (NodeIterator method: {})", dTree.getNbNodes(), Iterators.size(dTree.nodeIterator()));
+		LOGGER.info("Nb leaves: {} ", dTree.getLeaves());
+		LOGGER.info("Nb features nodes: {} ", dTree.getFNodes());
+		LOGGER.info("Depth: {} ", dTree.getDepth());
+	}
+
+	private DTreeNode getDecisionTreeNode(DTreeNode parent, List<Feature> features, List<Trigram> trigrams, TagSet tagSet) {
 		Feature best = selectBestFeature(features, trigrams, tagSet);
 		int nb_ok = Iterators.size(new TrigramIterator(trigrams.iterator(), best, true));
 		int nb_ko = trigrams.size() - nb_ok;
 		if(nb_ok <= RECURSION_FREQUENCY_THRESHOLD || nb_ko <= RECURSION_FREQUENCY_THRESHOLD) {
-			return new LeafDTreeNode(toPTable(trigrams));
+			return new LeafDTreeNode(parent, toPTable(trigrams));
 		} else {
 			List<Feature> newFeatureSet = new ArrayList<>();
 			newFeatureSet.addAll(features);
 			newFeatureSet.remove(best);
 
 			DTreeNode yesNode = getDecisionTreeNode(
+					null,
 					newFeatureSet,
 					Lists.newArrayList(new TrigramIterator(trigrams.iterator(), best, true)),
 					tagSet);
 			DTreeNode noNode = getDecisionTreeNode(
+					null,
 					newFeatureSet,
 					Lists.newArrayList(new TrigramIterator(trigrams.iterator(), best, false)),
 					tagSet);
-			return new FeatureDTreeNode(
+			FeatureDTreeNode node = new FeatureDTreeNode(
+					parent,
 					best,
 					yesNode,
 					noNode
-				);
+			);
+			yesNode.setParent(node);
+			noNode.setParent(node);
+			return node;
 		}
 	}
 
@@ -105,7 +127,7 @@ public class Trainer {
 		Feature best = features.get(0);
 		double minInfo = Double.MAX_VALUE;
 		for(Feature feature:features) {
-			double info = computeFeatureInformation(feature, allTrigrams, tagSet);
+			double info = getIq(feature, allTrigrams);
 			if(info < minInfo) {
 				minInfo = info;
 				best = feature;
@@ -114,64 +136,6 @@ public class Trainer {
 		return best;
 	}
 
-//	private static List<List<Trigram>> partition(Feature feature, List<Trigram> trigrams) {
-//		List<List<Trigram>> partition = new ArrayList<>(2);
-//		List<Trigram> l_ok = new ArrayList<>();
-//		List<Trigram> l_ko = new ArrayList<>();
-//		for(Trigram trigram:trigrams) {
-//			if(trigram.hasFeature(feature))
-//				l_ok.add(trigram);
-//			else
-//				l_ko.add(trigram);
-//		}
-//		partition.add(l_ok);
-//		partition.add(l_ko);
-//		return partition;
-//	}
-
-	public static double computeFeatureInformation(Feature feature, List<Trigram> trigrams, TagSet tagSet) {
-
-//		double sum_ok = getInformation(tagSet, new TrigramIterator(trigrams.iterator(), feature, true));
-//		double sum_ko = getInformation(tagSet, new TrigramIterator(trigrams.iterator(), feature, false));
-
-		int total_ok = 0, total_ko = 0;
-		Map<Tag, AtomicInteger> counter_ok = new HashMap<>(), counter_ko = new HashMap<>();
-		for(Trigram trigram:trigrams) {
-			if(trigram.hasFeature(feature)) {
-				total_ok++;
-				countTrigram(counter_ok, trigram);
-			} else {
-				total_ko++;
-				countTrigram(counter_ko, trigram);
-			}
-		}
-		double p_ok = ((double)total_ok)/trigrams.size();
-		double p_ko = 1 - p_ok;
-		double sum_ok = plogpsum(counter_ok, total_ok);
-		double sum_ko = plogpsum(counter_ko, total_ko);
-
-
-		double info = - p_ok * sum_ok -  p_ko * sum_ko;
-		return info;
-	}
-
-	private static void countTrigram(Map<Tag, AtomicInteger> counter_ok, Trigram trigram) {
-		if(!counter_ok.containsKey(trigram.getTag3()))
-			counter_ok.put(trigram.getTag3(), new AtomicInteger(1));
-		else
-			counter_ok.get(trigram.getTag3()).incrementAndGet();
-	}
-
-	private static double plogpsum(Map<Tag, AtomicInteger> counter, int total) {
-		double sum = 0;
-		for(Map.Entry<Tag, AtomicInteger> e:counter.entrySet())
-			sum += plogp(((double)e.getValue().intValue())/total);
-		return sum;
-	}
-
-	private static double plogp(double v) {
-		return v == 0 ? 0d : v * (Math.log(v) / Math.log(2));
-	}
 
 
 	private static List<Feature> toFeatureSet(TagSet tagSet) {
@@ -204,5 +168,41 @@ public class Trainer {
 			}
 		}
 		return allTrigrams;
+	}
+
+
+
+	public int prune(DTree dTree, double weightedInformationGainTh) {
+		List<DTreeNode> allNodes = Lists.newArrayList(dTree.nodeIterator());
+		int rem = 0;
+		for(DTreeNode node: allNodes) {
+			if(node instanceof FeatureDTreeNode) {
+				FeatureDTreeNode fNode = (FeatureDTreeNode)node;
+				if(fNode.getYes() instanceof LeafDTreeNode && fNode.getNo() instanceof LeafDTreeNode ) {
+					TrainingProbaTable table1  = (TrainingProbaTable) ((LeafDTreeNode)fNode.getYes()).getTable();
+					TrainingProbaTable table2 = (TrainingProbaTable)((LeafDTreeNode)fNode.getNo()).getTable();
+					double g = Utils.getWeightedInformationGain(table1, table2);
+					if(g < weightedInformationGainTh) {
+						rem++;
+						prune(fNode, table1, table2);
+					}
+				}
+			}
+		}
+
+		if(rem > 0) {
+			int recPrune = prune(dTree, weightedInformationGainTh);
+			return rem + recPrune;
+		}
+		else
+			return 0;
+	}
+
+	private void prune(FeatureDTreeNode fNode, TrainingProbaTable table1, TrainingProbaTable table2) {
+		LeafDTreeNode node  = new LeafDTreeNode(
+				fNode.getParent(),
+				Utils.merge(table1, table2));
+		if(fNode.getParent() != null)
+			((FeatureDTreeNode)fNode.getParent()).replaceChild(fNode, node);
 	}
 }

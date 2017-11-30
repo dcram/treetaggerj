@@ -65,4 +65,14 @@ public class FeatureDTreeNode extends DTreeNode {
 	public DTreeNode getNo() {
 		return no;
 	}
+
+	public void replaceChild(FeatureDTreeNode oldChild, LeafDTreeNode newChild) {
+		if(yes == oldChild)
+			yes = newChild;
+		else if(no == oldChild)
+			no = newChild;
+		else
+			throw new IllegalArgumentException(String.format("No such child newChild: %s. YES: %s, NO: %s", oldChild, yes, no));
+	}
+
 }

@@ -1,6 +1,7 @@
 package fr.dcram.treetaggerj.trainer;
 
 import fr.dcram.treetaggerj.model.TagSet;
+import fr.dcram.treetaggerj.trainer.utils.Utils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,7 +47,7 @@ public class TrainerSpec {
 	@Test
 	public void testComputeInformation() throws IOException {
 		getTrigrams();
-		double information = Trainer.computeFeatureInformation(feature("A", 1), trigrams, tagSet);
+		double information = Utils.getIq(feature("A", 1), trigrams);
 		double expected = -0.25*(
 								plogp(1)//B
 							) - 0.75 * (

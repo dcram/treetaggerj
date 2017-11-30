@@ -13,6 +13,7 @@ public class TrainingProbaTable implements ProbaTable {
 
 
 	public void add(Tag tag) {
+		total.incrementAndGet();
 		if(!map.containsKey(tag))
 			map.put(tag, new AtomicInteger(1));
 		else
@@ -35,5 +36,22 @@ public class TrainingProbaTable implements ProbaTable {
 		for(Map.Entry<Tag, AtomicInteger> e:map.entrySet())
 			m.put(e.getKey(), e.getValue().intValue());
 		return m;
+	}
+
+	public void merge(TrainingProbaTable table) {
+		for(Map.Entry<Tag, AtomicInteger> e:table.map.entrySet()) {
+			if(map.containsKey(e.getKey())) {
+				map.get(e.getKey()).addAndGet(e.getValue().intValue());
+			}
+			else {
+				map.put(e.getKey(), new AtomicInteger(e.getValue().intValue()));
+			}
+		}
+		total.addAndGet(table.getTotalFrequency());
+	}
+
+	@Override
+	public int getTotalFrequency() {
+		return total.intValue();
 	}
 }

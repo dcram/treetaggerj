@@ -30,13 +30,15 @@ public class DecisionTreeSpec {
 		table3 = Mockito.mock(ProbaTable.class);
 
 		DTreeNode root = new FeatureDTreeNode(
+				null,
 				new Feature(tag("A"), 1),
 				new FeatureDTreeNode(
+						null,
 						new Feature(tag("B"), 2),
-						new LeafDTreeNode(table1),
-						new LeafDTreeNode(table2)
+						new LeafDTreeNode(null, table1),
+						new LeafDTreeNode(null, table2)
 				),
-				new LeafDTreeNode(table3)
+				new LeafDTreeNode(null, table3)
 		);
 		decisionTree = new DTree(root);
 	}

@@ -22,4 +22,10 @@ public interface ProbaTable {
 
 	Map<Tag, Integer> getMap();
 
+	default int getTotalFrequency() {
+		int total = 0;
+		for(Map.Entry<Tag, Integer> e:getMap().entrySet())
+			total+=e.getValue();
+		return total;
+	}
 }
