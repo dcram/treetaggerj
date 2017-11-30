@@ -8,11 +8,17 @@ import fr.dcram.treetaggerj.model.ProbaTable;
 import java.util.Iterator;
 import java.util.List;
 
-@JsonIgnoreProperties({"depth", "leaves", "nbNodes", "fNodes"} )
+@JsonIgnoreProperties({"depth", "leaves", "nbNodes", "nbFNodes", "featureNodes"} )
 public class DTree {
 
 	@JsonProperty("root")
 	private DTreeNode rootNode;
+
+	public DTree() {
+
+
+	}
+
 
 	public DTree(DTreeNode root) {
 		this.rootNode = root;
@@ -39,7 +45,7 @@ public class DTree {
 		return rootNode.getNbLeaves();
 	}
 
-	public int getFNodes() {
+	public int getFeatureNodes() {
 		return rootNode.getNbFNodes();
 	}
 

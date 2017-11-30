@@ -5,6 +5,7 @@ import fr.dcram.treetaggerj.dtree.DTree;
 import fr.dcram.treetaggerj.model.TagSet;
 import fr.dcram.treetaggerj.model.Token;
 import fr.dcram.treetaggerj.util.TreeTaggerModelIO;
+import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,9 +31,14 @@ public class TrainerFuncTest {
 
 	@Test
 	public void test() throws IOException {
+		trainer.getConfig().setsTreeWeightedInformationGainTh(8);
 		TreeTaggerModel model = trainer.train(sequences);
 		System.out.println(model);
-		TreeTaggerModelIO.save(model, new PrintWriter(System.out));
+		Assertions.assertThat(model.getDecisionTree().getRootNode().getDepth())
+				.isEqualTo(25);
+		Assertions.assertThat(model.getLexicon().getSuffixTree().getDepth())
+				.isEqualTo(5);
+		TreeTaggerModelIO.save(model, new FileWriter(Paths.get("src/test/resources/model1.json").toFile()));
 	}
 
 }

@@ -29,4 +29,8 @@ public class Tag {
 	public String toString() {
 		return label;
 	}
+
+	public int getId() {
+		return id;
+	}
 }

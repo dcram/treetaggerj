@@ -27,19 +27,16 @@ public class FeatureDTreeNode extends DTreeNode {
 		this.no = no;
 	}
 
+	public FeatureDTreeNode(Feature test, DTreeNode yes, DTreeNode no) {
+		this(null, test, yes, no);
+	}
+
+
 	@Override
 	public ProbaTable getTable(List<Feature> features) {
 		return (features.contains(feature) ? yes : no).getTable(features);
 	}
 
-	@Override
-	public String toString(int depth) {
-		return String.format("%s%n%syes-> %s%nno ->%s",
-				feature,
-				tab(depth), yes.toString(depth+1),
-				tab(depth), no.toString(depth+1)
-				);
-	}
 
 	@Override
 	public int getNbNodes() {

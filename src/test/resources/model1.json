@@ -1,0 +1,3518 @@
+{
+  "lexicon" : {
+    "fullforms" : {
+      "trois" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "Jacques" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "être" : {
+        "total" : 4,
+        "tags" : {
+          "VER:infi" : 4
+        }
+      },
+      "avant" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "\"" : {
+        "total" : 6,
+        "tags" : {
+          "PUN:cit" : 6
+        }
+      },
+      "%" : {
+        "total" : 3,
+        "tags" : {
+          "SYM" : 3
+        }
+      },
+      "(" : {
+        "total" : 11,
+        "tags" : {
+          "PUN" : 11
+        }
+      },
+      ")" : {
+        "total" : 11,
+        "tags" : {
+          "PUN" : 11
+        }
+      },
+      "," : {
+        "total" : 128,
+        "tags" : {
+          "PUN" : 128
+        }
+      },
+      "-" : {
+        "total" : 7,
+        "tags" : {
+          "PUN" : 7
+        }
+      },
+      "." : {
+        "total" : 98,
+        "tags" : {
+          "SENT" : 98
+        }
+      },
+      "Ces" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:DEM" : 2
+        }
+      },
+      "2" : {
+        "total" : 4,
+        "tags" : {
+          "NUM" : 4
+        }
+      },
+      "sera" : {
+        "total" : 2,
+        "tags" : {
+          "VER:futu" : 2
+        }
+      },
+      "6" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "8" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      ":" : {
+        "total" : 4,
+        "tags" : {
+          "PUN" : 4
+        }
+      },
+      "même" : {
+        "total" : 3,
+        "tags" : {
+          "ADV" : 2,
+          "ADJ" : 1
+        }
+      },
+      "ces" : {
+        "total" : 5,
+        "tags" : {
+          "PRO:DEM" : 5
+        }
+      },
+      "cet" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:DEM" : 2
+        }
+      },
+      "[" : {
+        "total" : 2,
+        "tags" : {
+          "PUN" : 2
+        }
+      },
+      "]" : {
+        "total" : 2,
+        "tags" : {
+          "PUN" : 2
+        }
+      },
+      "élections" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "a" : {
+        "total" : 25,
+        "tags" : {
+          "VER:pres" : 25
+        }
+      },
+      "Nouvelle-Zélande" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 1,
+          "ADJ" : 1
+        }
+      },
+      "suite" : {
+        "total" : 5,
+        "tags" : {
+          "NOM" : 5
+        }
+      },
+      "Par" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "noter" : {
+        "total" : 2,
+        "tags" : {
+          "VER:infi" : 2
+        }
+      },
+      "mesures" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "par" : {
+        "total" : 16,
+        "tags" : {
+          "PRP" : 16
+        }
+      },
+      "autour" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "pas" : {
+        "total" : 12,
+        "tags" : {
+          "ADV" : 12
+        }
+      },
+      "sans" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "organisées" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pper" : 2
+        }
+      },
+      "«" : {
+        "total" : 8,
+        "tags" : {
+          "PUN:cit" : 8
+        }
+      },
+      "familles" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "article" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "également" : {
+        "total" : 5,
+        "tags" : {
+          "ADV" : 5
+        }
+      },
+      "»" : {
+        "total" : 7,
+        "tags" : {
+          "PUN:cit" : 7
+        }
+      },
+      "Irakiens" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "En" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "à" : {
+        "total" : 38,
+        "tags" : {
+          "PRP" : 38
+        }
+      },
+      "pour" : {
+        "total" : 19,
+        "tags" : {
+          "PRP" : 18,
+          "KON" : 1
+        }
+      },
+      "Asie" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "explosion" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "Apple" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 1,
+          "ADJ" : 1
+        }
+      },
+      "personnes" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "étaient" : {
+        "total" : 2,
+        "tags" : {
+          "VER:impf" : 2
+        }
+      },
+      "officiel" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "empêchent" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pres" : 2
+        }
+      },
+      "Microsoft" : {
+        "total" : 5,
+        "tags" : {
+          "NOM" : 5
+        }
+      },
+      "moteur" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 1,
+          "ADJ" : 1
+        }
+      },
+      "Il" : {
+        "total" : 7,
+        "tags" : {
+          "PRO:PER" : 7
+        }
+      },
+      "lancement" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "L'" : {
+        "total" : 3,
+        "tags" : {
+          "DET:ART" : 3
+        }
+      },
+      "Je" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:PER" : 2
+        }
+      },
+      "entrée" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "premier" : {
+        "total" : 5,
+        "tags" : {
+          "NUM" : 5
+        }
+      },
+      "télévision" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "avait" : {
+        "total" : 2,
+        "tags" : {
+          "VER:impf" : 2
+        }
+      },
+      "cela" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:DEM" : 2
+        }
+      },
+      "PowerPC" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "M." : {
+        "total" : 2,
+        "tags" : {
+          "ABR" : 2
+        }
+      },
+      "est" : {
+        "total" : 24,
+        "tags" : {
+          "VER:pres" : 24
+        }
+      },
+      "La" : {
+        "total" : 10,
+        "tags" : {
+          "DET:ART" : 10
+        }
+      },
+      "Le" : {
+        "total" : 14,
+        "tags" : {
+          "DET:ART" : 12,
+          "PRO:PER" : 2
+        }
+      },
+      "bureau" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "été" : {
+        "total" : 7,
+        "tags" : {
+          "VER:pper" : 7
+        }
+      },
+      "voix" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "manière" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "heures" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Mo" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "eut" : {
+        "total" : 3,
+        "tags" : {
+          "VER:simp" : 3
+        }
+      },
+      "Malgré" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "prises" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pper" : 2
+        }
+      },
+      "autres" : {
+        "total" : 6,
+        "tags" : {
+          "ADJ" : 6
+        }
+      },
+      "devenir" : {
+        "total" : 2,
+        "tags" : {
+          "VER:infi" : 2
+        }
+      },
+      "reçu" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pper" : 2
+        }
+      },
+      "devant" : {
+        "total" : 2,
+        "tags" : {
+          "PRP" : 2
+        }
+      },
+      "processeur" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 1,
+          "ADJ" : 1
+        }
+      },
+      "France" : {
+        "total" : 10,
+        "tags" : {
+          "NOM" : 10
+        }
+      },
+      "leur" : {
+        "total" : 4,
+        "tags" : {
+          "DET:POS" : 3,
+          "PRO:PER" : 1
+        }
+      },
+      "ans" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "accord" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Les" : {
+        "total" : 5,
+        "tags" : {
+          "DET:ART" : 5
+        }
+      },
+      "Après" : {
+        "total" : 2,
+        "tags" : {
+          "PRP" : 2
+        }
+      },
+      "émissions" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "les" : {
+        "total" : 48,
+        "tags" : {
+          "DET:ART" : 47,
+          "PRO:PER" : 1
+        }
+      },
+      "000" : {
+        "total" : 5,
+        "tags" : {
+          "NUM" : 5
+        }
+      },
+      "disponibles" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "près" : {
+        "total" : 3,
+        "tags" : {
+          "ADV" : 3
+        }
+      },
+      "français" : {
+        "total" : 7,
+        "tags" : {
+          "ADJ" : 7
+        }
+      },
+      "Chambre" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "rapport" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "dollars" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Motion" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "tout" : {
+        "total" : 3,
+        "tags" : {
+          "ADV" : 2,
+          "NOM" : 1
+        }
+      },
+      "Christophe" : {
+        "total" : 3,
+        "tags" : {
+          "ADJ" : 2,
+          "NOM" : 1
+        }
+      },
+      "sécurité" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "mois" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "avaient" : {
+        "total" : 3,
+        "tags" : {
+          "VER:impf" : 3
+        }
+      },
+      "Search" : {
+        "total" : 6,
+        "tags" : {
+          "NOM" : 6
+        }
+      },
+      "yeux" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "prochaines" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "mètres" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "plupart" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "nom" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "nos" : {
+        "total" : 2,
+        "tags" : {
+          "DET:POS" : 2
+        }
+      },
+      "vote" : {
+        "total" : 9,
+        "tags" : {
+          "NOM" : 9
+        }
+      },
+      "française" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "demande" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 1,
+          "VER:pres" : 1
+        }
+      },
+      "décembre" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Airlines" : {
+        "total" : 5,
+        "tags" : {
+          "NOM" : 5
+        }
+      },
+      "nouvelle" : {
+        "total" : 3,
+        "tags" : {
+          "ADJ" : 3
+        }
+      },
+      "MSN" : {
+        "total" : 6,
+        "tags" : {
+          "NOM" : 3,
+          "ADJ" : 3
+        }
+      },
+      "recherche" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "toujours" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "fois" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "nouveaux" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "attaques" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "ainsi" : {
+        "total" : 6,
+        "tags" : {
+          "KON" : 3,
+          "ADV" : 3
+        }
+      },
+      "discrétion" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "donc" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "dont" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:REL" : 2
+        }
+      },
+      "part" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 1,
+          "VER:pres" : 1
+        }
+      },
+      "présence" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "nouveautés" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Des" : {
+        "total" : 3,
+        "tags" : {
+          "PRP:det" : 3
+        }
+      },
+      "Holocauste" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "bébé" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "lui" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:PER" : 2
+        }
+      },
+      "Syrie" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "avoir" : {
+        "total" : 2,
+        "tags" : {
+          "VER:infi" : 2
+        }
+      },
+      "des" : {
+        "total" : 34,
+        "tags" : {
+          "PRP:det" : 34
+        }
+      },
+      "présente" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pres" : 2
+        }
+      },
+      "dimanche" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "afin" : {
+        "total" : 2,
+        "tags" : {
+          "KON" : 2
+        }
+      },
+      "résidentiel" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "cours" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "au" : {
+        "total" : 12,
+        "tags" : {
+          "PRP:det" : 12
+        }
+      },
+      "perdu" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 1,
+          "VER:pper" : 1
+        }
+      },
+      "millions" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "tiers" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "d'" : {
+        "total" : 29,
+        "tags" : {
+          "PRP" : 29
+        }
+      },
+      "Président" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "journal" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "autorité" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "femmes" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "ses" : {
+        "total" : 2,
+        "tags" : {
+          "DET:POS" : 2
+        }
+      },
+      "ce" : {
+        "total" : 7,
+        "tags" : {
+          "PRO:DEM" : 7
+        }
+      },
+      "après" : {
+        "total" : 2,
+        "tags" : {
+          "KON" : 1,
+          "PRP" : 1
+        }
+      },
+      "posters" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Présidente" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "restera" : {
+        "total" : 2,
+        "tags" : {
+          "VER:futu" : 2
+        }
+      },
+      "Ceci" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:DEM" : 2
+        }
+      },
+      "de" : {
+        "total" : 142,
+        "tags" : {
+          "PRP" : 142
+        }
+      },
+      "dit" : {
+        "total" : 3,
+        "tags" : {
+          "VER:pper" : 2,
+          "VER:pres" : 1
+        }
+      },
+      "parti" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "du" : {
+        "total" : 28,
+        "tags" : {
+          "PRP:det" : 28
+        }
+      },
+      "médias" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "maintenant" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "terroristes" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "PowerBook" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "en" : {
+        "total" : 27,
+        "tags" : {
+          "PRP" : 25,
+          "PRO:PER" : 2
+        }
+      },
+      "internationale" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "et" : {
+        "total" : 42,
+        "tags" : {
+          "KON" : 42
+        }
+      },
+      "arrêter" : {
+        "total" : 2,
+        "tags" : {
+          "VER:infi" : 2
+        }
+      },
+      "président" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Conseil" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Sensor" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "voiture" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "toutes" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:IND" : 2
+        }
+      },
+      "Une" : {
+        "total" : 2,
+        "tags" : {
+          "DET:ART" : 2
+        }
+      },
+      "2008" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "2004" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "utilisation" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "une" : {
+        "total" : 15,
+        "tags" : {
+          "DET:ART" : 14,
+          "NUM" : 1
+        }
+      },
+      "TrackPad" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "pays" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "bureaux" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Alors" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "nouveau" : {
+        "total" : 3,
+        "tags" : {
+          "ADJ" : 3
+        }
+      },
+      "sont" : {
+        "total" : 18,
+        "tags" : {
+          "VER:pres" : 18
+        }
+      },
+      "Google" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 1,
+          "ADJ" : 1,
+          "VER:subp" : 1
+        }
+      },
+      "il" : {
+        "total" : 7,
+        "tags" : {
+          "PRO:PER" : 7
+        }
+      },
+      "développement" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Liban" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "l'" : {
+        "total" : 47,
+        "tags" : {
+          "DET:ART" : 46,
+          "PRO:PER" : 1
+        }
+      },
+      "diffusion" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "déjà" : {
+        "total" : 3,
+        "tags" : {
+          "ADV" : 3
+        }
+      },
+      "annoncé" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pper" : 2
+        }
+      },
+      "actuels" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "la" : {
+        "total" : 70,
+        "tags" : {
+          "DET:ART" : 70
+        }
+      },
+      "787" : {
+        "total" : 3,
+        "tags" : {
+          "NUM" : 2,
+          "ABR" : 1
+        }
+      },
+      "le" : {
+        "total" : 55,
+        "tags" : {
+          "DET:ART" : 52,
+          "PRO:PER" : 3
+        }
+      },
+      "n'" : {
+        "total" : 8,
+        "tags" : {
+          "ADV" : 8
+        }
+      },
+      "Encarta" : {
+        "total" : 2,
+        "tags" : {
+          "VER:simp" : 2
+        }
+      },
+      "enfant" : {
+        "total" : 6,
+        "tags" : {
+          "NOM" : 6
+        }
+      },
+      "fut" : {
+        "total" : 3,
+        "tags" : {
+          "VER:simp" : 3
+        }
+      },
+      "antisémites" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "mais" : {
+        "total" : 2,
+        "tags" : {
+          "KON" : 2
+        }
+      },
+      "son" : {
+        "total" : 10,
+        "tags" : {
+          "DET:POS" : 10
+        }
+      },
+      "député" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 1,
+          "VER:pper" : 1
+        }
+      },
+      "poste" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "comédien" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "entre" : {
+        "total" : 2,
+        "tags" : {
+          "PRP" : 2
+        }
+      },
+      "plus" : {
+        "total" : 9,
+        "tags" : {
+          "ADV" : 9
+        }
+      },
+      "ne" : {
+        "total" : 7,
+        "tags" : {
+          "ADV" : 7
+        }
+      },
+      "parents" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "CRS" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "était" : {
+        "total" : 7,
+        "tags" : {
+          "VER:impf" : 7
+        }
+      },
+      "sous" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "CSA" : {
+        "total" : 4,
+        "tags" : {
+          "VER:simp" : 4
+        }
+      },
+      "total" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 1,
+          "ADJ" : 1
+        }
+      },
+      "Sahar" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 2,
+          "ADJ" : 1
+        }
+      },
+      "Jeyarajah" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "intégration" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "plusieurs" : {
+        "total" : 4,
+        "tags" : {
+          "PRO:IND" : 4
+        }
+      },
+      "on" : {
+        "total" : 2,
+        "tags" : {
+          "PRO:PER" : 2
+        }
+      },
+      "personnages" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "clair" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "ou" : {
+        "total" : 2,
+        "tags" : {
+          "KON" : 2
+        }
+      },
+      "Wilson" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "République" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "s'" : {
+        "total" : 3,
+        "tags" : {
+          "PRO:PER" : 3
+        }
+      },
+      "10" : {
+        "total" : 4,
+        "tags" : {
+          "NUM" : 4
+        }
+      },
+      "années" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "13" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "14" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "15" : {
+        "total" : 3,
+        "tags" : {
+          "NUM" : 3
+        }
+      },
+      "Eutelsat" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "moyens" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "ministre" : {
+        "total" : 6,
+        "tags" : {
+          "NOM" : 6
+        }
+      },
+      "installés" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pper" : 2
+        }
+      },
+      "20" : {
+        "total" : 3,
+        "tags" : {
+          "NUM" : 3
+        }
+      },
+      "aujourd'hui" : {
+        "total" : 4,
+        "tags" : {
+          "ADV" : 4
+        }
+      },
+      "sa" : {
+        "total" : 7,
+        "tags" : {
+          "DET:POS" : 7
+        }
+      },
+      "sur" : {
+        "total" : 12,
+        "tags" : {
+          "PRP" : 12
+        }
+      },
+      "se" : {
+        "total" : 6,
+        "tags" : {
+          "PRO:PER" : 6
+        }
+      },
+      "si" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "où" : {
+        "total" : 3,
+        "tags" : {
+          "PRO:REL" : 3
+        }
+      },
+      "ont" : {
+        "total" : 8,
+        "tags" : {
+          "VER:pres" : 8
+        }
+      },
+      "qu'" : {
+        "total" : 6,
+        "tags" : {
+          "KON" : 4,
+          "PRO:REL" : 2
+        }
+      },
+      "barrières" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "inscrits" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pper" : 2
+        }
+      },
+      "jour" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "communauté" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "un" : {
+        "total" : 29,
+        "tags" : {
+          "DET:ART" : 27,
+          "NOM" : 1,
+          "NUM" : 1
+        }
+      },
+      "première" : {
+        "total" : 3,
+        "tags" : {
+          "NUM" : 3
+        }
+      },
+      "ordonné" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pper" : 2
+        }
+      },
+      "visiteurs" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "64" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "que" : {
+        "total" : 20,
+        "tags" : {
+          "KON" : 18,
+          "PRO:REL" : 2
+        }
+      },
+      "qui" : {
+        "total" : 20,
+        "tags" : {
+          "PRO:REL" : 20
+        }
+      },
+      "deux" : {
+        "total" : 3,
+        "tags" : {
+          "NUM" : 3
+        }
+      },
+      "China" : {
+        "total" : 3,
+        "tags" : {
+          "VER:simp" : 3
+        }
+      },
+      "lieu" : {
+        "total" : 6,
+        "tags" : {
+          "NOM" : 6
+        }
+      },
+      "Sudden" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "extermination" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "grande" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "ancien" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Afrique" : {
+        "total" : 5,
+        "tags" : {
+          "NOM" : 4,
+          "ADJ" : 1
+        }
+      },
+      "Karami" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Irak" : {
+        "total" : 4,
+        "tags" : {
+          "NOM" : 4
+        }
+      },
+      "Hondelatte" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 2,
+          "ADJ" : 1
+        }
+      },
+      "avions" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "interne" : {
+        "total" : 2,
+        "tags" : {
+          "ADJ" : 2
+        }
+      },
+      "dans" : {
+        "total" : 19,
+        "tags" : {
+          "PRP" : 19
+        }
+      },
+      "Hariri" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "force" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Huit" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "confirmé" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pper" : 2
+        }
+      },
+      "Selon" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "jusqu'" : {
+        "total" : 2,
+        "tags" : {
+          "PRP" : 2
+        }
+      },
+      "assez" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "permet" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pres" : 2
+        }
+      },
+      "comme" : {
+        "total" : 8,
+        "tags" : {
+          "KON" : 4,
+          "ADV" : 4
+        }
+      },
+      "Hunt" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "récemment" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "gouvernement" : {
+        "total" : 8,
+        "tags" : {
+          "NOM" : 8
+        }
+      },
+      "Représentants" : {
+        "total" : 3,
+        "tags" : {
+          "NOM" : 3
+        }
+      },
+      "ailleurs" : {
+        "total" : 2,
+        "tags" : {
+          "ADV" : 2
+        }
+      },
+      "avec" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "cas" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "contre" : {
+        "total" : 3,
+        "tags" : {
+          "PRP" : 3
+        }
+      },
+      "cette" : {
+        "total" : 3,
+        "tags" : {
+          "PRO:DEM" : 3
+        }
+      },
+      "sept" : {
+        "total" : 2,
+        "tags" : {
+          "NUM" : 2
+        }
+      },
+      "vient" : {
+        "total" : 2,
+        "tags" : {
+          "VER:pres" : 2
+        }
+      },
+      "Desktop" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "résultats" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      },
+      "Futuroscope" : {
+        "total" : 2,
+        "tags" : {
+          "NOM" : 2
+        }
+      }
+    },
+    "suffix-tree" : {
+      "root" : {
+        "children" : {
+          "s" : {
+            "children" : {
+              "r" : {
+                "children" : {
+                  "u" : {
+                    "children" : {
+                      "e" : {
+                        "children" : {
+                          "t" : {
+                            "children" : null,
+                            "table" : {
+                              "total" : 7,
+                              "tags" : {
+                                "NOM" : 7
+                              }
+                            }
+                          }
+                        },
+                        "table" : {
+                          "total" : 6,
+                          "tags" : {
+                            "PRO:IND" : 4,
+                            "ADV" : 2
+                          }
+                        }
+                      }
+                    },
+                    "table" : {
+                      "total" : 6,
+                      "tags" : {
+                        "NOM" : 4,
+                        "ADV" : 2
+                      }
+                    }
+                  }
+                },
+                "table" : {
+                  "total" : 15,
+                  "tags" : {
+                    "NOM" : 12,
+                    "ADV" : 2,
+                    "ADJ" : 1
+                  }
+                }
+              }
+            },
+            "table" : {
+              "total" : 246,
+              "tags" : {
+                "NOM" : 141,
+                "ADJ" : 60,
+                "VER:pper" : 24,
+                "PRP" : 4,
+                "PRO:IND" : 4,
+                "NUM" : 4,
+                "PRO:REL" : 2,
+                "PRO:DEM" : 2,
+                "ADV" : 2,
+                "KON" : 1,
+                "VER:simp" : 1,
+                "VER:pres" : 1
+              }
+            }
+          }
+        },
+        "table" : {
+          "total" : 786,
+          "tags" : {
+            "NOM" : 390,
+            "ADJ" : 111,
+            "VER:pper" : 57,
+            "ADV" : 44,
+            "VER:infi" : 36,
+            "VER:pres" : 35,
+            "VER:impf" : 24,
+            "PRP" : 22,
+            "NUM" : 14,
+            "VER:ppre" : 12,
+            "KON" : 10,
+            "VER:simp" : 9,
+            "VER:futu" : 8,
+            "PRO:DEM" : 5,
+            "VER:cond" : 4,
+            "NAM" : 2,
+            "PRO:PER" : 1,
+            "VER:subi" : 1,
+            "VER:subp" : 1
+          }
+        }
+      }
+    }
+  },
+  "decision-tree" : {
+    "root" : {
+      "test" : "1_NOM",
+      "yes" : {
+        "test" : "2_DET:ART",
+        "yes" : {
+          "table" : {
+            "total" : 251,
+            "tags" : {
+              "PRP" : 78,
+              "ADJ" : 51,
+              "PRP:det" : 27,
+              "VER:pres" : 19,
+              "PUN" : 18,
+              "KON" : 10,
+              "SENT" : 9,
+              "PRO:REL" : 7,
+              "ADV" : 6,
+              "NUM" : 5,
+              "VER:pper" : 5,
+              "VER:simp" : 4,
+              "NOM" : 3,
+              "VER:impf" : 3,
+              "VER:ppre" : 2,
+              "PUN:cit" : 2,
+              "DET:ART" : 1,
+              "PRO:DEM" : 1
+            }
+          }
+        },
+        "no" : {
+          "test" : "2_PRP",
+          "yes" : {
+            "table" : {
+              "total" : 105,
+              "tags" : {
+                "PUN" : 25,
+                "PRP" : 21,
+                "ADJ" : 13,
+                "VER:pres" : 10,
+                "SENT" : 10,
+                "KON" : 7,
+                "NOM" : 5,
+                "DET:ART" : 3,
+                "NUM" : 3,
+                "ADV" : 2,
+                "PRP:det" : 2,
+                "VER:cond" : 2,
+                "PRO:REL" : 1,
+                "VER:simp" : 1
+              }
+            }
+          },
+          "no" : {
+            "test" : "2_START",
+            "yes" : {
+              "table" : {
+                "total" : 13,
+                "tags" : {
+                  "NOM" : 4,
+                  "PUN" : 3,
+                  "VER:futu" : 2,
+                  "KON" : 1,
+                  "PRP" : 1,
+                  "VER:impf" : 1,
+                  "VER:pres" : 1
+                }
+              }
+            },
+            "no" : {
+              "test" : "2_NOM",
+              "yes" : {
+                "table" : {
+                  "total" : 31,
+                  "tags" : {
+                    "PUN" : 7,
+                    "VER:pres" : 6,
+                    "SENT" : 5,
+                    "PRP" : 3,
+                    "NOM" : 2,
+                    "ADJ" : 2,
+                    "PUN:cit" : 2,
+                    "KON" : 1,
+                    "PRO:REL" : 1,
+                    "VER:subi" : 1,
+                    "PRO:PER" : 1
+                  }
+                }
+              },
+              "no" : {
+                "test" : "2_PRO:DEM",
+                "yes" : {
+                  "table" : {
+                    "total" : 15,
+                    "tags" : {
+                      "PUN" : 6,
+                      "VER:pres" : 4,
+                      "ADV" : 2,
+                      "SENT" : 2,
+                      "ADJ" : 1
+                    }
+                  }
+                },
+                "no" : {
+                  "test" : "2_DET:POS",
+                  "yes" : {
+                    "table" : {
+                      "total" : 23,
+                      "tags" : {
+                        "SENT" : 8,
+                        "PUN" : 6,
+                        "PRP" : 4,
+                        "ADJ" : 3,
+                        "VER:futu" : 1,
+                        "ADV" : 1
+                      }
+                    }
+                  },
+                  "no" : {
+                    "test" : "2_PUN",
+                    "yes" : {
+                      "table" : {
+                        "total" : 13,
+                        "tags" : {
+                          "NOM" : 2,
+                          "PUN" : 2,
+                          "SENT" : 2,
+                          "KON" : 1,
+                          "DET:POS" : 1,
+                          "PRP" : 1,
+                          "VER:simp" : 1,
+                          "VER:pres" : 1,
+                          "PRO:PER" : 1,
+                          "VER:pper" : 1
+                        }
+                      }
+                    },
+                    "no" : {
+                      "test" : "2_ADJ",
+                      "yes" : {
+                        "table" : {
+                          "total" : 49,
+                          "tags" : {
+                            "SENT" : 9,
+                            "PRP" : 8,
+                            "PUN" : 8,
+                            "ADJ" : 6,
+                            "NOM" : 4,
+                            "VER:pres" : 4,
+                            "ADV" : 2,
+                            "PRO:PER" : 2,
+                            "PRO:REL" : 2,
+                            "VER:pper" : 1,
+                            "PRP:det" : 1,
+                            "VER:impf" : 1,
+                            "PUN:cit" : 1
+                          }
+                        }
+                      },
+                      "no" : {
+                        "test" : "2_PUN:cit",
+                        "yes" : {
+                          "table" : {
+                            "total" : 5,
+                            "tags" : {
+                              "ADJ" : 2,
+                              "NOM" : 1,
+                              "NUM" : 1,
+                              "PUN:cit" : 1
+                            }
+                          }
+                        },
+                        "no" : {
+                          "test" : "2_PRO:IND",
+                          "yes" : {
+                            "table" : {
+                              "total" : 5,
+                              "tags" : {
+                                "PRP" : 3,
+                                "DET:POS" : 1,
+                                "VER:pper" : 1
+                              }
+                            }
+                          },
+                          "no" : {
+                            "table" : {
+                              "total" : 145,
+                              "tags" : {
+                                "PRP" : 40,
+                                "PUN" : 24,
+                                "ADJ" : 19,
+                                "SENT" : 14,
+                                "NOM" : 10,
+                                "PRP:det" : 10,
+                                "VER:pres" : 6,
+                                "NUM" : 5,
+                                "KON" : 5,
+                                "VER:pper" : 4,
+                                "ADV" : 3,
+                                "PRO:REL" : 2,
+                                "DET:ART" : 1,
+                                "VER:ppre" : 1,
+                                "VER:impf" : 1
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "no" : {
+        "test" : "1_DET:ART",
+        "yes" : {
+          "table" : {
+            "total" : 289,
+            "tags" : {
+              "NOM" : 252,
+              "ADJ" : 15,
+              "NUM" : 15,
+              "PUN:cit" : 5,
+              "ADV" : 2
+            }
+          }
+        },
+        "no" : {
+          "test" : "1_PRP",
+          "yes" : {
+            "test" : "2_NOM",
+            "yes" : {
+              "table" : {
+                "total" : 159,
+                "tags" : {
+                  "NOM" : 75,
+                  "DET:ART" : 52,
+                  "NUM" : 11,
+                  "VER:infi" : 5,
+                  "DET:POS" : 4,
+                  "ADJ" : 3,
+                  "PRO:REL" : 2,
+                  "NAM" : 2,
+                  "PRP" : 1,
+                  "VER:ppre" : 1,
+                  "ADV" : 1,
+                  "PRO:PER" : 1,
+                  "PRO:IND" : 1
+                }
+              }
+            },
+            "no" : {
+              "test" : "2_ADJ",
+              "yes" : {
+                "table" : {
+                  "total" : 31,
+                  "tags" : {
+                    "DET:ART" : 11,
+                    "NOM" : 9,
+                    "NUM" : 6,
+                    "DET:POS" : 1,
+                    "ADJ" : 1,
+                    "VER:ppre" : 1,
+                    "PRO:DEM" : 1,
+                    "VER:simp" : 1
+                  }
+                }
+              },
+              "no" : {
+                "test" : "2_VER:pres",
+                "yes" : {
+                  "table" : {
+                    "total" : 16,
+                    "tags" : {
+                      "VER:infi" : 7,
+                      "DET:ART" : 5,
+                      "ADV" : 2,
+                      "NOM" : 1,
+                      "PRP:det" : 1
+                    }
+                  }
+                },
+                "no" : {
+                  "test" : "2_PUN",
+                  "yes" : {
+                    "table" : {
+                      "total" : 19,
+                      "tags" : {
+                        "DET:ART" : 6,
+                        "ADJ" : 4,
+                        "ADV" : 2,
+                        "VER:infi" : 2,
+                        "KON" : 1,
+                        "PRP" : 1,
+                        "NOM" : 1,
+                        "NUM" : 1,
+                        "PRO:PER" : 1
+                      }
+                    }
+                  },
+                  "no" : {
+                    "test" : "2_VER:pper",
+                    "yes" : {
+                      "table" : {
+                        "total" : 44,
+                        "tags" : {
+                          "DET:ART" : 20,
+                          "NOM" : 7,
+                          "NUM" : 4,
+                          "VER:infi" : 3,
+                          "DET:POS" : 2,
+                          "ADJ" : 2,
+                          "PRP:det" : 2,
+                          "PRP" : 1,
+                          "PRO:IND" : 1,
+                          "PRO:DEM" : 1,
+                          "PRO:PER" : 1
+                        }
+                      }
+                    },
+                    "no" : {
+                      "test" : "2_START",
+                      "yes" : {
+                        "table" : {
+                          "total" : 16,
+                          "tags" : {
+                            "DET:ART" : 5,
+                            "ADV" : 3,
+                            "DET:POS" : 1,
+                            "PRP" : 1,
+                            "PRO:IND" : 1,
+                            "NOM" : 1,
+                            "ADJ" : 1,
+                            "PRO:DEM" : 1,
+                            "VER:infi" : 1,
+                            "NUM" : 1
+                          }
+                        }
+                      },
+                      "no" : {
+                        "test" : "2_PRP",
+                        "yes" : {
+                          "table" : {
+                            "total" : 4,
+                            "tags" : {
+                              "DET:POS" : 1,
+                              "NOM" : 1,
+                              "PRO:DEM" : 1,
+                              "NUM" : 1
+                            }
+                          }
+                        },
+                        "no" : {
+                          "test" : "2_VER:infi",
+                          "yes" : {
+                            "table" : {
+                              "total" : 11,
+                              "tags" : {
+                                "DET:ART" : 3,
+                                "VER:infi" : 2,
+                                "NUM" : 2,
+                                "DET:POS" : 1,
+                                "NOM" : 1,
+                                "ADJ" : 1,
+                                "PRO:DEM" : 1
+                              }
+                            }
+                          },
+                          "no" : {
+                            "test" : "2_KON",
+                            "yes" : {
+                              "table" : {
+                                "total" : 11,
+                                "tags" : {
+                                  "DET:ART" : 3,
+                                  "NOM" : 3,
+                                  "VER:infi" : 3,
+                                  "DET:POS" : 1,
+                                  "NUM" : 1
+                                }
+                              }
+                            },
+                            "no" : {
+                              "table" : {
+                                "total" : 35,
+                                "tags" : {
+                                  "DET:ART" : 16,
+                                  "NUM" : 8,
+                                  "NOM" : 7,
+                                  "ADV" : 2,
+                                  "VER:infi" : 2
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "no" : {
+            "test" : "1_PRP:det",
+            "yes" : {
+              "test" : "2_NOM",
+              "yes" : {
+                "table" : {
+                  "total" : 40,
+                  "tags" : {
+                    "NOM" : 28,
+                    "NUM" : 6,
+                    "ADJ" : 3,
+                    "VER:simp" : 2,
+                    "ABR" : 1
+                  }
+                }
+              },
+              "no" : {
+                "table" : {
+                  "total" : 39,
+                  "tags" : {
+                    "NOM" : 37,
+                    "ADJ" : 2
+                  }
+                }
+              }
+            },
+            "no" : {
+              "test" : "1_VER:pres",
+              "yes" : {
+                "test" : "2_ADV",
+                "yes" : {
+                  "table" : {
+                    "total" : 11,
+                    "tags" : {
+                      "ADV" : 7,
+                      "KON" : 1,
+                      "DET:ART" : 1,
+                      "ADJ" : 1,
+                      "VER:pper" : 1
+                    }
+                  }
+                },
+                "no" : {
+                  "test" : "2_PRO:PER",
+                  "yes" : {
+                    "table" : {
+                      "total" : 17,
+                      "tags" : {
+                        "PRP" : 6,
+                        "VER:pper" : 4,
+                        "DET:ART" : 2,
+                        "ADV" : 2,
+                        "NUM" : 1,
+                        "PRO:PER" : 1,
+                        "PRP:det" : 1
+                      }
+                    }
+                  },
+                  "no" : {
+                    "test" : "2_NOM",
+                    "yes" : {
+                      "table" : {
+                        "total" : 51,
+                        "tags" : {
+                          "VER:pper" : 23,
+                          "ADV" : 7,
+                          "PRP" : 5,
+                          "DET:ART" : 5,
+                          "ADJ" : 5,
+                          "PRP:det" : 2,
+                          "NOM" : 1,
+                          "VER:infi" : 1,
+                          "NUM" : 1,
+                          "SENT" : 1
+                        }
+                      }
+                    },
+                    "no" : {
+                      "table" : {
+                        "total" : 40,
+                        "tags" : {
+                          "VER:pper" : 16,
+                          "DET:ART" : 9,
+                          "PRP" : 5,
+                          "ADV" : 5,
+                          "VER:infi" : 2,
+                          "KON" : 1,
+                          "ADJ" : 1,
+                          "PRO:DEM" : 1
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "no" : {
+                "test" : "1_PRO:PER",
+                "yes" : {
+                  "test" : "2_PRO:PER",
+                  "yes" : {
+                    "table" : {
+                      "total" : 5,
+                      "tags" : {
+                        "VER:pres" : 3,
+                        "VER:cond" : 1,
+                        "VER:subp" : 1
+                      }
+                    }
+                  },
+                  "no" : {
+                    "test" : "2_PRP",
+                    "yes" : {
+                      "table" : {
+                        "total" : 3,
+                        "tags" : {
+                          "VER:infi" : 2,
+                          "PUN" : 1
+                        }
+                      }
+                    },
+                    "no" : {
+                      "test" : "2_START",
+                      "yes" : {
+                        "table" : {
+                          "total" : 12,
+                          "tags" : {
+                            "VER:impf" : 3,
+                            "VER:pres" : 3,
+                            "VER:futu" : 2,
+                            "VER:simp" : 2,
+                            "PUN" : 1,
+                            "PRO:PER" : 1
+                          }
+                        }
+                      },
+                      "no" : {
+                        "test" : "2_PRO:REL",
+                        "yes" : {
+                          "table" : {
+                            "total" : 5,
+                            "tags" : {
+                              "VER:simp" : 2,
+                              "VER:futu" : 1,
+                              "VER:pres" : 1,
+                              "PRO:PER" : 1
+                            }
+                          }
+                        },
+                        "no" : {
+                          "test" : "2_PUN",
+                          "yes" : {
+                            "table" : {
+                              "total" : 4,
+                              "tags" : {
+                                "VER:pres" : 2,
+                                "VER:impf" : 1,
+                                "VER:futu" : 1
+                              }
+                            }
+                          },
+                          "no" : {
+                            "table" : {
+                              "total" : 20,
+                              "tags" : {
+                                "VER:pres" : 8,
+                                "ADV" : 4,
+                                "VER:impf" : 3,
+                                "PRO:PER" : 3,
+                                "VER:infi" : 2
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "no" : {
+                  "test" : "1_NUM",
+                  "yes" : {
+                    "test" : "2_DET:ART",
+                    "yes" : {
+                      "table" : {
+                        "total" : 15,
+                        "tags" : {
+                          "NOM" : 9,
+                          "PUN" : 2,
+                          "VER:impf" : 1,
+                          "VER:pres" : 1,
+                          "NUM" : 1,
+                          "PRP:det" : 1
+                        }
+                      }
+                    },
+                    "no" : {
+                      "test" : "2_NOM",
+                      "yes" : {
+                        "table" : {
+                          "total" : 14,
+                          "tags" : {
+                            "NOM" : 7,
+                            "PRP" : 2,
+                            "SENT" : 2,
+                            "PUN:cit" : 2,
+                            "PUN" : 1
+                          }
+                        }
+                      },
+                      "no" : {
+                        "test" : "2_PRP",
+                        "yes" : {
+                          "table" : {
+                            "total" : 35,
+                            "tags" : {
+                              "NOM" : 18,
+                              "PRP" : 4,
+                              "PUN" : 3,
+                              "NUM" : 3,
+                              "KON" : 2,
+                              "SENT" : 2,
+                              "ADJ" : 1,
+                              "VER:simp" : 1,
+                              "ABR" : 1
+                            }
+                          }
+                        },
+                        "no" : {
+                          "table" : {
+                            "total" : 32,
+                            "tags" : {
+                              "NOM" : 23,
+                              "ADJ" : 2,
+                              "SYM" : 2,
+                              "KON" : 1,
+                              "PRP" : 1,
+                              "PUN" : 1,
+                              "NUM" : 1,
+                              "SENT" : 1
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "no" : {
+                    "test" : "1_ADJ",
+                    "yes" : {
+                      "test" : "2_NOM",
+                      "yes" : {
+                        "table" : {
+                          "total" : 97,
+                          "tags" : {
+                            "PRP" : 18,
+                            "PUN" : 18,
+                            "ADJ" : 12,
+                            "VER:pres" : 11,
+                            "SENT" : 9,
+                            "KON" : 6,
+                            "NOM" : 3,
+                            "VER:ppre" : 3,
+                            "ADV" : 3,
+                            "PRP:det" : 3,
+                            "PRO:REL" : 3,
+                            "VER:pper" : 2,
+                            "PUN:cit" : 2,
+                            "DET:ART" : 1,
+                            "VER:impf" : 1,
+                            "PRO:DEM" : 1,
+                            "VER:simp" : 1
+                          }
+                        }
+                      },
+                      "no" : {
+                        "test" : "2_ADJ",
+                        "yes" : {
+                          "table" : {
+                            "total" : 12,
+                            "tags" : {
+                              "PRP:det" : 3,
+                              "PRP" : 2,
+                              "PRO:REL" : 2,
+                              "SENT" : 2,
+                              "NOM" : 1,
+                              "PUN" : 1,
+                              "ADV" : 1
+                            }
+                          }
+                        },
+                        "no" : {
+                          "test" : "2_VER:pres",
+                          "yes" : {
+                            "table" : {
+                              "total" : 7,
+                              "tags" : {
+                                "PRP" : 5,
+                                "KON" : 1,
+                                "PUN" : 1
+                              }
+                            }
+                          },
+                          "no" : {
+                            "test" : "2_ADV",
+                            "yes" : {
+                              "table" : {
+                                "total" : 12,
+                                "tags" : {
+                                  "PUN" : 5,
+                                  "PRP" : 2,
+                                  "NOM" : 2,
+                                  "SENT" : 2,
+                                  "VER:pres" : 1
+                                }
+                              }
+                            },
+                            "no" : {
+                              "table" : {
+                                "total" : 62,
+                                "tags" : {
+                                  "NOM" : 44,
+                                  "PUN" : 6,
+                                  "PRP" : 4,
+                                  "KON" : 3,
+                                  "ADV" : 2,
+                                  "SENT" : 2,
+                                  "VER:pres" : 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "no" : {
+                      "test" : "1_PRO:REL",
+                      "yes" : {
+                        "test" : "2_PUN",
+                        "yes" : {
+                          "table" : {
+                            "total" : 6,
+                            "tags" : {
+                              "VER:pres" : 4,
+                              "DET:ART" : 1,
+                              "VER:cond" : 1
+                            }
+                          }
+                        },
+                        "no" : {
+                          "table" : {
+                            "total" : 25,
+                            "tags" : {
+                              "DET:ART" : 6,
+                              "VER:pres" : 6,
+                              "PRO:PER" : 5,
+                              "VER:impf" : 4,
+                              "VER:futu" : 3,
+                              "VER:simp" : 1
+                            }
+                          }
+                        }
+                      },
+                      "no" : {
+                        "test" : "1_DET:POS",
+                        "yes" : {
+                          "table" : {
+                            "total" : 26,
+                            "tags" : {
+                              "NOM" : 23,
+                              "ADJ" : 3
+                            }
+                          }
+                        },
+                        "no" : {
+                          "test" : "1_VER:pper",
+                          "yes" : {
+                            "test" : "2_VER:pres",
+                            "yes" : {
+                              "table" : {
+                                "total" : 44,
+                                "tags" : {
+                                  "PRP" : 15,
+                                  "DET:ART" : 6,
+                                  "ADV" : 5,
+                                  "NUM" : 4,
+                                  "VER:pper" : 4,
+                                  "KON" : 2,
+                                  "ADJ" : 2,
+                                  "PRP:det" : 2,
+                                  "NOM" : 1,
+                                  "PRO:REL" : 1,
+                                  "SENT" : 1,
+                                  "PUN:cit" : 1
+                                }
+                              }
+                            },
+                            "no" : {
+                              "test" : "2_NOM",
+                              "yes" : {
+                                "table" : {
+                                  "total" : 12,
+                                  "tags" : {
+                                    "PRP" : 7,
+                                    "KON" : 1,
+                                    "VER:impf" : 1,
+                                    "PUN" : 1,
+                                    "ADV" : 1,
+                                    "PUN:cit" : 1
+                                  }
+                                }
+                              },
+                              "no" : {
+                                "test" : "2_VER:pper",
+                                "yes" : {
+                                  "table" : {
+                                    "total" : 7,
+                                    "tags" : {
+                                      "PRP" : 3,
+                                      "NOM" : 1,
+                                      "ADJ" : 1,
+                                      "PUN" : 1,
+                                      "NUM" : 1
+                                    }
+                                  }
+                                },
+                                "no" : {
+                                  "table" : {
+                                    "total" : 40,
+                                    "tags" : {
+                                      "PRP" : 19,
+                                      "KON" : 4,
+                                      "SENT" : 4,
+                                      "PRP:det" : 4,
+                                      "VER:pper" : 3,
+                                      "DET:POS" : 1,
+                                      "DET:ART" : 1,
+                                      "NOM" : 1,
+                                      "ADJ" : 1,
+                                      "PUN" : 1,
+                                      "ADV" : 1
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "no" : {
+                            "test" : "1_ADV",
+                            "yes" : {
+                              "test" : "2_NOM",
+                              "yes" : {
+                                "table" : {
+                                  "total" : 16,
+                                  "tags" : {
+                                    "VER:pres" : 3,
+                                    "PRP" : 2,
+                                    "VER:impf" : 2,
+                                    "ADJ" : 2,
+                                    "VER:pper" : 2,
+                                    "NOM" : 1,
+                                    "PUN" : 1,
+                                    "SENT" : 1,
+                                    "PRO:PER" : 1,
+                                    "PRP:det" : 1
+                                  }
+                                }
+                              },
+                              "no" : {
+                                "test" : "2_ADV",
+                                "yes" : {
+                                  "table" : {
+                                    "total" : 10,
+                                    "tags" : {
+                                      "ADJ" : 3,
+                                      "VER:infi" : 2,
+                                      "VER:pper" : 2,
+                                      "DET:POS" : 1,
+                                      "PRP" : 1,
+                                      "PRP:det" : 1
+                                    }
+                                  }
+                                },
+                                "no" : {
+                                  "test" : "2_VER:pres",
+                                  "yes" : {
+                                    "table" : {
+                                      "total" : 21,
+                                      "tags" : {
+                                        "ADV" : 5,
+                                        "VER:pper" : 5,
+                                        "DET:ART" : 4,
+                                        "PRP" : 2,
+                                        "ADJ" : 2,
+                                        "PRP:det" : 2,
+                                        "PRO:IND" : 1
+                                      }
+                                    }
+                                  },
+                                  "no" : {
+                                    "test" : "2_PRP",
+                                    "yes" : {
+                                      "table" : {
+                                        "total" : 10,
+                                        "tags" : {
+                                          "PUN" : 4,
+                                          "ADV" : 2,
+                                          "KON" : 1,
+                                          "DET:ART" : 1,
+                                          "ADJ" : 1,
+                                          "SENT" : 1
+                                        }
+                                      }
+                                    },
+                                    "no" : {
+                                      "test" : "2_VER:pper",
+                                      "yes" : {
+                                        "table" : {
+                                          "total" : 7,
+                                          "tags" : {
+                                            "DET:ART" : 4,
+                                            "ADJ" : 1,
+                                            "PUN" : 1,
+                                            "VER:pres" : 1
+                                          }
+                                        }
+                                      },
+                                      "no" : {
+                                        "test" : "2_START",
+                                        "yes" : {
+                                          "table" : {
+                                            "total" : 4,
+                                            "tags" : {
+                                              "KON" : 2,
+                                              "PRP" : 1,
+                                              "PUN" : 1
+                                            }
+                                          }
+                                        },
+                                        "no" : {
+                                          "test" : "2_VER:impf",
+                                          "yes" : {
+                                            "table" : {
+                                              "total" : 6,
+                                              "tags" : {
+                                                "VER:pper" : 2,
+                                                "KON" : 1,
+                                                "DET:POS" : 1,
+                                                "PRP" : 1,
+                                                "ADV" : 1
+                                              }
+                                            }
+                                          },
+                                          "no" : {
+                                            "test" : "2_PRO:PER",
+                                            "yes" : {
+                                              "table" : {
+                                                "total" : 4,
+                                                "tags" : {
+                                                  "VER:pres" : 3,
+                                                  "VER:pper" : 1
+                                                }
+                                              }
+                                            },
+                                            "no" : {
+                                              "test" : "2_ADJ",
+                                              "yes" : {
+                                                "table" : {
+                                                  "total" : 6,
+                                                  "tags" : {
+                                                    "PRP" : 3,
+                                                    "KON" : 1,
+                                                    "VER:pres" : 1,
+                                                    "VER:pper" : 1
+                                                  }
+                                                }
+                                              },
+                                              "no" : {
+                                                "test" : "2_PUN",
+                                                "yes" : {
+                                                  "table" : {
+                                                    "total" : 8,
+                                                    "tags" : {
+                                                      "PRP" : 2,
+                                                      "VER:pres" : 2,
+                                                      "KON" : 1,
+                                                      "ADJ" : 1,
+                                                      "ADV" : 1,
+                                                      "PRP:det" : 1
+                                                    }
+                                                  }
+                                                },
+                                                "no" : {
+                                                  "test" : "2_KON",
+                                                  "yes" : {
+                                                    "table" : {
+                                                      "total" : 4,
+                                                      "tags" : {
+                                                        "DET:ART" : 1,
+                                                        "ADJ" : 1,
+                                                        "VER:pres" : 1,
+                                                        "ADV" : 1
+                                                      }
+                                                    }
+                                                  },
+                                                  "no" : {
+                                                    "table" : {
+                                                      "total" : 12,
+                                                      "tags" : {
+                                                        "DET:ART" : 4,
+                                                        "VER:pper" : 3,
+                                                        "PRP" : 1,
+                                                        "ADJ" : 1,
+                                                        "PRO:DEM" : 1,
+                                                        "SENT" : 1,
+                                                        "PRP:det" : 1
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "no" : {
+                              "test" : "1_PUN",
+                              "yes" : {
+                                "test" : "2_ADJ",
+                                "yes" : {
+                                  "table" : {
+                                    "total" : 31,
+                                    "tags" : {
+                                      "KON" : 6,
+                                      "DET:ART" : 6,
+                                      "NOM" : 4,
+                                      "ADV" : 4,
+                                      "PRP" : 3,
+                                      "PRO:REL" : 2,
+                                      "PRO:DEM" : 2,
+                                      "VER:ppre" : 1,
+                                      "VER:pres" : 1,
+                                      "VER:infi" : 1,
+                                      "PRO:PER" : 1
+                                    }
+                                  }
+                                },
+                                "no" : {
+                                  "test" : "2_NOM",
+                                  "yes" : {
+                                    "table" : {
+                                      "total" : 99,
+                                      "tags" : {
+                                        "DET:ART" : 22,
+                                        "KON" : 13,
+                                        "PRP" : 11,
+                                        "ADJ" : 8,
+                                        "NOM" : 5,
+                                        "PUN" : 4,
+                                        "NUM" : 4,
+                                        "SENT" : 4,
+                                        "PRO:REL" : 4,
+                                        "VER:simp" : 4,
+                                        "VER:pres" : 3,
+                                        "ADV" : 3,
+                                        "PRO:PER" : 3,
+                                        "VER:pper" : 3,
+                                        "PRP:det" : 2,
+                                        "DET:POS" : 2,
+                                        "VER:ppre" : 1,
+                                        "VER:infi" : 1,
+                                        "PRO:DEM" : 1,
+                                        "ABR" : 1
+                                      }
+                                    }
+                                  },
+                                  "no" : {
+                                    "test" : "2_VER:pper",
+                                    "yes" : {
+                                      "table" : {
+                                        "total" : 3,
+                                        "tags" : {
+                                          "PRP:det" : 2,
+                                          "PUN:cit" : 1
+                                        }
+                                      }
+                                    },
+                                    "no" : {
+                                      "test" : "2_VER:simp",
+                                      "yes" : {
+                                        "table" : {
+                                          "total" : 6,
+                                          "tags" : {
+                                            "KON" : 1,
+                                            "PRP" : 1,
+                                            "VER:simp" : 1,
+                                            "PUN" : 1,
+                                            "VER:pres" : 1,
+                                            "PUN:cit" : 1
+                                          }
+                                        }
+                                      },
+                                      "no" : {
+                                        "test" : "2_NUM",
+                                        "yes" : {
+                                          "table" : {
+                                            "total" : 7,
+                                            "tags" : {
+                                              "DET:ART" : 2,
+                                              "KON" : 1,
+                                              "PRP" : 1,
+                                              "NOM" : 1,
+                                              "PUN" : 1,
+                                              "NUM" : 1
+                                            }
+                                          }
+                                        },
+                                        "no" : {
+                                          "test" : "2_PUN",
+                                          "yes" : {
+                                            "table" : {
+                                              "total" : 6,
+                                              "tags" : {
+                                                "VER:pres" : 2,
+                                                "KON" : 1,
+                                                "PRP" : 1,
+                                                "DET:ART" : 1,
+                                                "VER:pper" : 1
+                                              }
+                                            }
+                                          },
+                                          "no" : {
+                                            "table" : {
+                                              "total" : 15,
+                                              "tags" : {
+                                                "DET:ART" : 5,
+                                                "NOM" : 3,
+                                                "PRP" : 2,
+                                                "VER:pres" : 2,
+                                                "ADJ" : 1,
+                                                "VER:ppre" : 1,
+                                                "ADV" : 1
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "no" : {
+                                "test" : "1_PRO:DEM",
+                                "yes" : {
+                                  "test" : "2_START",
+                                  "yes" : {
+                                    "table" : {
+                                      "total" : 7,
+                                      "tags" : {
+                                        "NOM" : 4,
+                                        "VER:pres" : 2,
+                                        "VER:impf" : 1
+                                      }
+                                    }
+                                  },
+                                  "no" : {
+                                    "test" : "2_KON",
+                                    "yes" : {
+                                      "table" : {
+                                        "total" : 7,
+                                        "tags" : {
+                                          "NOM" : 2,
+                                          "PRP" : 1,
+                                          "ADJ" : 1,
+                                          "VER:pres" : 1,
+                                          "PRO:PER" : 1,
+                                          "PRP:det" : 1
+                                        }
+                                      }
+                                    },
+                                    "no" : {
+                                      "table" : {
+                                        "total" : 16,
+                                        "tags" : {
+                                          "NOM" : 9,
+                                          "ADJ" : 3,
+                                          "PRO:REL" : 2,
+                                          "PRP" : 1,
+                                          "NUM" : 1
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "no" : {
+                                  "test" : "1_VER:simp",
+                                  "yes" : {
+                                    "test" : "2_PRO:PER",
+                                    "yes" : {
+                                      "table" : {
+                                        "total" : 4,
+                                        "tags" : {
+                                          "DET:POS" : 1,
+                                          "DET:ART" : 1,
+                                          "VER:pres" : 1,
+                                          "VER:pper" : 1
+                                        }
+                                      }
+                                    },
+                                    "no" : {
+                                      "table" : {
+                                        "total" : 18,
+                                        "tags" : {
+                                          "NOM" : 8,
+                                          "PUN" : 6,
+                                          "ADV" : 2,
+                                          "VER:pper" : 2
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "no" : {
+                                    "test" : "1_KON",
+                                    "yes" : {
+                                      "test" : "2_PUN",
+                                      "yes" : {
+                                        "table" : {
+                                          "total" : 22,
+                                          "tags" : {
+                                            "DET:ART" : 6,
+                                            "KON" : 3,
+                                            "PRP" : 3,
+                                            "ADV" : 3,
+                                            "PRO:DEM" : 2,
+                                            "PRO:PER" : 2,
+                                            "VER:subi" : 1,
+                                            "VER:pper" : 1,
+                                            "PRP:det" : 1
+                                          }
+                                        }
+                                      },
+                                      "no" : {
+                                        "test" : "2_NOM",
+                                        "yes" : {
+                                          "table" : {
+                                            "total" : 25,
+                                            "tags" : {
+                                              "DET:ART" : 6,
+                                              "PRP" : 4,
+                                              "PRO:PER" : 4,
+                                              "NOM" : 3,
+                                              "KON" : 2,
+                                              "DET:POS" : 1,
+                                              "PRO:REL" : 1,
+                                              "ADJ" : 1,
+                                              "VER:simp" : 1,
+                                              "VER:pres" : 1,
+                                              "PRP:det" : 1
+                                            }
+                                          }
+                                        },
+                                        "no" : {
+                                          "test" : "2_NUM",
+                                          "yes" : {
+                                            "table" : {
+                                              "total" : 3,
+                                              "tags" : {
+                                                "NUM" : 2,
+                                                "DET:POS" : 1
+                                              }
+                                            }
+                                          },
+                                          "no" : {
+                                            "test" : "2_VER:pper",
+                                            "yes" : {
+                                              "table" : {
+                                                "total" : 7,
+                                                "tags" : {
+                                                  "DET:ART" : 2,
+                                                  "DET:POS" : 1,
+                                                  "PRO:REL" : 1,
+                                                  "VER:ppre" : 1,
+                                                  "PRO:DEM" : 1,
+                                                  "PRO:PER" : 1
+                                                }
+                                              }
+                                            },
+                                            "no" : {
+                                              "test" : "2_ADJ",
+                                              "yes" : {
+                                                "table" : {
+                                                  "total" : 10,
+                                                  "tags" : {
+                                                    "PRP" : 3,
+                                                    "DET:ART" : 3,
+                                                    "NOM" : 1,
+                                                    "ADJ" : 1,
+                                                    "PRO:DEM" : 1,
+                                                    "ADV" : 1
+                                                  }
+                                                }
+                                              },
+                                              "no" : {
+                                                "test" : "2_KON",
+                                                "yes" : {
+                                                  "table" : {
+                                                    "total" : 5,
+                                                    "tags" : {
+                                                      "DET:ART" : 2,
+                                                      "PRP" : 1,
+                                                      "PRO:IND" : 1,
+                                                      "PRO:DEM" : 1
+                                                    }
+                                                  }
+                                                },
+                                                "no" : {
+                                                  "table" : {
+                                                    "total" : 11,
+                                                    "tags" : {
+                                                      "DET:ART" : 5,
+                                                      "NOM" : 2,
+                                                      "PRO:DEM" : 2,
+                                                      "PRO:PER" : 2
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "no" : {
+                                      "test" : "2_START",
+                                      "yes" : {
+                                        "table" : {
+                                          "total" : 104,
+                                          "tags" : {
+                                            "DET:ART" : 32,
+                                            "PRP" : 17,
+                                            "NOM" : 14,
+                                            "PRO:PER" : 12,
+                                            "PRO:DEM" : 7,
+                                            "PRP:det" : 5,
+                                            "ADV" : 4,
+                                            "NUM" : 3,
+                                            "ADJ" : 2,
+                                            "PRO:IND" : 2,
+                                            "PUN" : 1,
+                                            "VER:pres" : 1,
+                                            "VER:pper" : 1,
+                                            "DET:POS" : 1,
+                                            "ABR" : 1,
+                                            "PUN:cit" : 1
+                                          }
+                                        }
+                                      },
+                                      "no" : {
+                                        "test" : "1_VER:infi",
+                                        "yes" : {
+                                          "test" : "2_PRO:PER",
+                                          "yes" : {
+                                            "table" : {
+                                              "total" : 4,
+                                              "tags" : {
+                                                "PRP" : 3,
+                                                "PUN" : 1
+                                              }
+                                            }
+                                          },
+                                          "no" : {
+                                            "test" : "2_VER:pres",
+                                            "yes" : {
+                                              "table" : {
+                                                "total" : 3,
+                                                "tags" : {
+                                                  "PRO:DEM" : 1,
+                                                  "ADV" : 1,
+                                                  "VER:pper" : 1
+                                                }
+                                              }
+                                            },
+                                            "no" : {
+                                              "test" : "2_PRP",
+                                              "yes" : {
+                                                "table" : {
+                                                  "total" : 25,
+                                                  "tags" : {
+                                                    "DET:ART" : 7,
+                                                    "PRP" : 6,
+                                                    "VER:pper" : 4,
+                                                    "PRO:DEM" : 3,
+                                                    "KON" : 1,
+                                                    "DET:POS" : 1,
+                                                    "PRO:IND" : 1,
+                                                    "VER:infi" : 1,
+                                                    "PUN:cit" : 1
+                                                  }
+                                                }
+                                              },
+                                              "no" : {
+                                                "table" : {
+                                                  "total" : 9,
+                                                  "tags" : {
+                                                    "DET:ART" : 3,
+                                                    "PRP" : 2,
+                                                    "DET:POS" : 1,
+                                                    "NOM" : 1,
+                                                    "VER:pper" : 1,
+                                                    "PRP:det" : 1
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "no" : {
+                                          "test" : "1_PUN:cit",
+                                          "yes" : {
+                                            "test" : "2_DET:ART",
+                                            "yes" : {
+                                              "table" : {
+                                                "total" : 5,
+                                                "tags" : {
+                                                  "NOM" : 5
+                                                }
+                                              }
+                                            },
+                                            "no" : {
+                                              "test" : "2_NOM",
+                                              "yes" : {
+                                                "table" : {
+                                                  "total" : 6,
+                                                  "tags" : {
+                                                    "PRP" : 2,
+                                                    "SENT" : 2,
+                                                    "PUN" : 1,
+                                                    "VER:pper" : 1
+                                                  }
+                                                }
+                                              },
+                                              "no" : {
+                                                "table" : {
+                                                  "total" : 9,
+                                                  "tags" : {
+                                                    "ADJ" : 2,
+                                                    "SENT" : 2,
+                                                    "PRO:IND" : 1,
+                                                    "DET:ART" : 1,
+                                                    "PUN" : 1,
+                                                    "VER:pres" : 1,
+                                                    "PRO:PER" : 1
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "no" : {
+                                            "test" : "1_PRO:IND",
+                                            "yes" : {
+                                              "table" : {
+                                                "total" : 8,
+                                                "tags" : {
+                                                  "NOM" : 5,
+                                                  "DET:ART" : 2,
+                                                  "DET:POS" : 1
+                                                }
+                                              }
+                                            },
+                                            "no" : {
+                                              "test" : "1_VER:ppre",
+                                              "yes" : {
+                                                "test" : "2_PUN",
+                                                "yes" : {
+                                                  "table" : {
+                                                    "total" : 3,
+                                                    "tags" : {
+                                                      "KON" : 1,
+                                                      "PRO:IND" : 1,
+                                                      "ADV" : 1
+                                                    }
+                                                  }
+                                                },
+                                                "no" : {
+                                                  "table" : {
+                                                    "total" : 9,
+                                                    "tags" : {
+                                                      "DET:ART" : 5,
+                                                      "PRP" : 2,
+                                                      "ADV" : 1,
+                                                      "NUM" : 1
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "no" : {
+                                                "test" : "1_VER:impf",
+                                                "yes" : {
+                                                  "test" : "2_PRO:PER",
+                                                  "yes" : {
+                                                    "table" : {
+                                                      "total" : 7,
+                                                      "tags" : {
+                                                        "ADV" : 2,
+                                                        "DET:ART" : 1,
+                                                        "ADJ" : 1,
+                                                        "VER:infi" : 1,
+                                                        "PRO:PER" : 1,
+                                                        "VER:pper" : 1
+                                                      }
+                                                    }
+                                                  },
+                                                  "no" : {
+                                                    "table" : {
+                                                      "total" : 17,
+                                                      "tags" : {
+                                                        "DET:ART" : 4,
+                                                        "ADV" : 4,
+                                                        "VER:pper" : 4,
+                                                        "PRP" : 3,
+                                                        "NOM" : 1,
+                                                        "PUN" : 1
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "no" : {
+                                                  "test" : "2_NOM",
+                                                  "yes" : {
+                                                    "test" : "1_VER:futu",
+                                                    "yes" : {
+                                                      "table" : {
+                                                        "total" : 3,
+                                                        "tags" : {
+                                                          "PRO:PER" : 2,
+                                                          "PRP" : 1
+                                                        }
+                                                      }
+                                                    },
+                                                    "no" : {
+                                                      "table" : {
+                                                        "total" : 4,
+                                                        "tags" : {
+                                                          "VER:infi" : 2,
+                                                          "NUM" : 1,
+                                                          "SENT" : 1
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "no" : {
+                                                    "test" : "1_VER:futu",
+                                                    "yes" : {
+                                                      "test" : "2_PRO:PER",
+                                                      "yes" : {
+                                                        "table" : {
+                                                          "total" : 4,
+                                                          "tags" : {
+                                                            "DET:ART" : 1,
+                                                            "ADV" : 1,
+                                                            "VER:infi" : 1,
+                                                            "NUM" : 1
+                                                          }
+                                                        }
+                                                      },
+                                                      "no" : {
+                                                        "table" : {
+                                                          "total" : 4,
+                                                          "tags" : {
+                                                            "PRP" : 1,
+                                                            "NOM" : 1,
+                                                            "ADV" : 1,
+                                                            "VER:pper" : 1
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "no" : {
+                                                      "test" : "1_ABR",
+                                                      "yes" : {
+                                                        "table" : {
+                                                          "total" : 3,
+                                                          "tags" : {
+                                                            "NOM" : 1,
+                                                            "VER:futu" : 1,
+                                                            "ADV" : 1
+                                                          }
+                                                        }
+                                                      },
+                                                      "no" : {
+                                                        "table" : {
+                                                          "total" : 11,
+                                                          "tags" : {
+                                                            "PRP" : 3,
+                                                            "ADV" : 2,
+                                                            "SENT" : 2,
+                                                            "VER:impf" : 1,
+                                                            "PUN" : 1,
+                                                            "SYM" : 1,
+                                                            "PRP:det" : 1
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -16,6 +16,11 @@ public class LeafDTreeNode extends DTreeNode {
 		this.table = table;
 	}
 
+	public LeafDTreeNode(ProbaTable table) {
+		this(null,table);
+	}
+
+
 
 	public ProbaTable getTable() {
 		return table;
@@ -26,10 +31,6 @@ public class LeafDTreeNode extends DTreeNode {
 		return table;
 	}
 
-	@Override
-	public String toString(int depth) {
-		return table.toString(tab(depth));
-	}
 
 	@Override
 	public int getNbNodes() {

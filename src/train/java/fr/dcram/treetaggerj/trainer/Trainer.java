@@ -29,13 +29,12 @@ public class Trainer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Trainer.class);
 	public static final String SEPARATOR = " ";
-	public static final int RECURSION_FREQUENCY_THRESHOLD = 2;
-	public static final int DTREE_WEIGHTED_INFORMATION_GAIN_TH = 5;
-	public static final int STREE_WEIGHTED_INFORMATION_GAIN_TH = 10;
-	public static final int SUFFIX_LENGTH = 5;
-	public static final double LEXICON_TEXT_TAG_THRESHOLD = .01d;
-	public static final int LEXICON_ABSOLUTE_FREQUENCY_THRESHOLD = 1;
-	public static final int LEXICON_FULLFORM_MAX_SIZE = 10000;
+
+	TrainingConfig config = new TrainingConfig();
+
+	public TrainingConfig getConfig() {
+		return config;
+	}
 
 	public static void main(String[] args) throws IOException {
 		String trainingCorpus = args[0];
@@ -93,8 +92,8 @@ public class Trainer {
 					fullformLexicon.put(text, new TrainingProbaTable());
 				((TrainingProbaTable)fullformLexicon.get(text)).add(tok.getTag());
 
-				if(text.length() >= SUFFIX_LENGTH) {
-					suffix = text.substring(Math.max(0, text.length()- SUFFIX_LENGTH)).toLowerCase();
+				if(text.length() >= config.getSuffixLength()) {
+					suffix = text.substring(Math.max(0, text.length()- config.getSuffixLength())).toLowerCase();
 					if(suffixTree.get(suffix) == null)
 						suffixTree.add(suffix, new TrainingProbaTable());
 					((TrainingProbaTable)suffixTree.get(suffix)).add(tok.getTag());
@@ -111,7 +110,7 @@ public class Trainer {
 		LOGGER.debug("Parsed full-form lexicon size after pruning: {}", fullformLexicon.size());
 		logSuffixTree(suffixTree);
 		LOGGER.info("Pruning suffix tree");
-		int nbPruned = prune(suffixTree, STREE_WEIGHTED_INFORMATION_GAIN_TH);
+		int nbPruned = prune(suffixTree, config.getsTreeWeightedInformationGainTh());
 		LOGGER.info("Pruned {} nodes", nbPruned);
 		logSuffixTree(suffixTree);
 
@@ -122,13 +121,13 @@ public class Trainer {
 		List<Map.Entry<String, ProbaTable>> fullforms = Lists.newArrayList(fullformLexicon.entrySet());
 		Optional<Map.Entry<String, ProbaTable>> nth = fullforms.stream()
 				.sorted((e1, e2) -> Integer.compare(e2.getValue().getTotalFrequency(), e1.getValue().getTotalFrequency()))
-				.skip(LEXICON_FULLFORM_MAX_SIZE)
+				.skip(config.getLexiconFullformMaxSize())
 				.findFirst();
 		int fTh = nth.isPresent() ?
 				nth.get().getValue().getTotalFrequency()
-				:LEXICON_ABSOLUTE_FREQUENCY_THRESHOLD;
+				:config.getLexiconAbsoluteFrequencyTh();
 		LOGGER.debug("Fullforms frequency th at rank {}: {}",
-				LEXICON_FULLFORM_MAX_SIZE,
+				config.getLexiconFullformMaxSize(),
 				fTh);
 
 		for(Iterator<Map.Entry<String, ProbaTable>> it = fullformLexicon.entrySet().iterator(); it.hasNext(); ) {
@@ -138,7 +137,7 @@ public class Trainer {
 			else {
 				TrainingProbaTable ptable = (TrainingProbaTable)entry.getValue();
 				Set<Tag> remTags = ptable.getMap().entrySet().stream()
-						.filter(e -> ptable.getProba(e.getKey()) <= LEXICON_TEXT_TAG_THRESHOLD)
+						.filter(e -> ptable.getProba(e.getKey()) <= config.getLexiconTextTagTh())
 						.map(e -> e.getKey())
 						.collect(Collectors.toSet() );
 				for(Tag r:remTags)
@@ -190,8 +189,8 @@ public class Trainer {
 		DTree dTree = new DTree(learnedRootNode);
 		logDTree(dTree);
 
-		LOGGER.info("Pruning dTree with threshold {} ", DTREE_WEIGHTED_INFORMATION_GAIN_TH);
-		int nbPruned = prune(dTree, DTREE_WEIGHTED_INFORMATION_GAIN_TH);
+		LOGGER.info("Pruning dTree with threshold {} ", config.getdTreeWeightedInformationGainTh());
+		int nbPruned = prune(dTree, config.getdTreeWeightedInformationGainTh());
 		LOGGER.debug("Pruned {} nodes", nbPruned);
 		logDTree(dTree);
 		return dTree;
@@ -200,7 +199,7 @@ public class Trainer {
 	private void logDTree(DTree dTree) {
 		LOGGER.debug("Nb nodes : {} (NodeIterator method: {})", dTree.getNbNodes(), Iterators.size(dTree.nodeIterator()));
 		LOGGER.debug("Nb leaves: {} ", dTree.getLeaves());
-		LOGGER.debug("Nb features nodes: {} ", dTree.getFNodes());
+		LOGGER.debug("Nb features nodes: {} ", dTree.getFeatureNodes());
 		LOGGER.debug("Depth: {} ", dTree.getDepth());
 	}
 
@@ -208,7 +207,7 @@ public class Trainer {
 		Feature best = selectBestFeature(features, trigrams, tagSet);
 		int nb_ok = Iterators.size(new TrigramIterator(trigrams.iterator(), best, true));
 		int nb_ko = trigrams.size() - nb_ok;
-		if(nb_ok <= RECURSION_FREQUENCY_THRESHOLD || nb_ko <= RECURSION_FREQUENCY_THRESHOLD) {
+		if(nb_ok <= config.getRecursionFrequencyTh() || nb_ko <= config.getRecursionFrequencyTh()) {
 			return new LeafDTreeNode(parent, toPTable(trigrams));
 		} else {
 			List<Feature> newFeatureSet = new ArrayList<>();

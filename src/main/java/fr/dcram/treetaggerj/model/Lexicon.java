@@ -8,27 +8,43 @@ import java.util.Map;
 public class Lexicon {
 
 	@JsonProperty("fullforms")
-	private Map<String, ProbaTable> lexicon;
+	private Map<String, ProbaTable> fullforms;
 
 	@JsonProperty("suffix-tree")
 	private SuffixTree suffixTree;
 
+	public Lexicon() {
+
+	}
+
 	public Lexicon(Map<String, ProbaTable> fullformLexicon, SuffixTree suffixTree) {
-		this.lexicon = fullformLexicon;
+		this.fullforms = fullformLexicon;
 		this.suffixTree = suffixTree;
 	}
 
 	public ProbaTable getTable(String text) {
-		if(lexicon.containsKey(text))
-			return lexicon.get(text);
-		else if(lexicon.containsKey(text.toLowerCase()))
-			return lexicon.get(text.toLowerCase());
-		else
-			return suffixTree.get(text.toLowerCase());
+		if(fullforms.containsKey(text))
+			return fullforms.get(text);
+		else {
+
+			String o = text.toLowerCase();
+			if(fullforms.containsKey(o))
+				return fullforms.get(o);
+			else
+				return suffixTree.get(o);
+		}
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Lexicon[fullforms:%s, suffixTree:%s]", lexicon.size(),suffixTree );
+		return String.format("Lexicon[fullforms:%s, suffixTree:%s]", fullforms.size(),suffixTree );
+	}
+
+	public Map<String, ProbaTable> getFullforms() {
+		return fullforms;
+	}
+
+	public SuffixTree getSuffixTree() {
+		return suffixTree;
 	}
 }

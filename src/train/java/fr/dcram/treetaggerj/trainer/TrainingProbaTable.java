@@ -26,7 +26,6 @@ public class TrainingProbaTable implements ProbaTable {
 			map.get(tag).incrementAndGet();
 	}
 
-	@Override
 	public Iterable<? extends Tag> getTags() {
 		return map.keySet();
 	}
@@ -36,7 +35,6 @@ public class TrainingProbaTable implements ProbaTable {
 		return map.containsKey(tag) ? ((double)map.get(tag).intValue())/total.intValue() : 0;
 	}
 
-	@Override
 	public Map<Tag, Integer> getMap() {
 		Map<Tag, Integer> m = new HashMap<>();
 		for(Map.Entry<Tag, AtomicInteger> e:map.entrySet())

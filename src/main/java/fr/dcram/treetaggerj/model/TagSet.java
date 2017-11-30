@@ -7,6 +7,7 @@ public class TagSet {
 	private Tag defaultTag;
 	private Tag startTag;
 	private Map<String, Tag> tags = new HashMap<>();
+	private Map<Integer, Tag> tagsById = new HashMap<>();
 
 	private AtomicInteger id = new AtomicInteger(0);
 
@@ -23,8 +24,10 @@ public class TagSet {
 		if(tags.containsKey(label))
 			throw new IllegalArgumentException(String.format("Tag %s already in tagset", label));
 		else {
-			Tag tag = new Tag(id.getAndIncrement(), label);
+			int id = this.id.getAndIncrement();
+			Tag tag = new Tag(id, label);
 			tags.put(label, tag);
+			tagsById.put(id, tag);
 			return tag;
 		}
 	}
@@ -60,5 +63,10 @@ public class TagSet {
 		tags.addAll(getTags());
 		tags.remove(getDefaultTag());
 		return tags;
+	}
+
+
+	public Tag getTag(int tagId) {
+		return tagsById.get(tagId);
 	}
 }

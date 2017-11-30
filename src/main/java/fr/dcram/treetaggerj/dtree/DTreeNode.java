@@ -20,8 +20,6 @@ public abstract class DTreeNode {
 
 	public abstract ProbaTable getTable(List<Feature> features);
 
-	public abstract String toString(int depth);
-
 	protected String tab(int depth) {
 		return String.join("", Collections.nCopies(depth, "\t"));
 	}
@@ -39,4 +37,7 @@ public abstract class DTreeNode {
 		this.parent = parent;
 	}
 
+	public void setParent(DTreeNode parent) {
+		this.parent = parent;
+	}
 }

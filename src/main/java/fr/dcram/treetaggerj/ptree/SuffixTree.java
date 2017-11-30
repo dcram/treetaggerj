@@ -5,11 +5,17 @@ import fr.dcram.treetaggerj.model.ProbaTable;
 
 import java.util.List;
 
-
 @JsonIgnoreProperties({"depth", "nbLeaves", "nbNodes", "allNodes"} )
 public class SuffixTree {
 
 	private PrefixTreeNode<ProbaTable> root;
+
+	public SuffixTree() {
+	}
+
+	public PrefixTreeNode<ProbaTable> getRoot() {
+		return root;
+	}
 
 	public SuffixTree(PrefixTreeNode<ProbaTable> root) {
 		this.root = root;

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.*;
 import java.util.function.Supplier;
 
-@JsonIgnoreProperties({"depth", "nbLeaves", "nbNodes", "allNodes"} )
+@JsonIgnoreProperties({"depth", "nbLeaves", "nbNodes", "allNodes", "nodes", "allValues", "leaf"} )
 public class PrefixTreeNode<T> {
 
 	@JsonProperty("children")
@@ -16,7 +16,7 @@ public class PrefixTreeNode<T> {
 	@JsonIgnore
 	PrefixTreeNode<T> parent;
 
-	@JsonProperty("ptable")
+	@JsonProperty("table")
 	T value;
 
 	public PrefixTreeNode() {
