@@ -3,6 +3,7 @@ package fr.dcram.treetaggerj.dtree;
 import fr.dcram.treetaggerj.model.Feature;
 import fr.dcram.treetaggerj.model.ProbaTable;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class DTree {
@@ -38,7 +39,12 @@ public class DTree {
 		return rootNode.getNbFNodes();
 	}
 
+
 	public int getDepth() {
 		return rootNode.getDepth();
+	}
+
+	public Iterator<DTreeNode> nodeIterator() {
+		return new NodeIterator(rootNode);
 	}
 }

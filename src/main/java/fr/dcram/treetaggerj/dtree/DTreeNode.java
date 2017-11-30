@@ -8,6 +8,12 @@ import java.util.List;
 
 public abstract class DTreeNode {
 
+	private DTreeNode parent;
+
+	public DTreeNode(DTreeNode parent) {
+		this.parent = parent;
+	}
+
 	public abstract ProbaTable getTable(List<Feature> features);
 
 	public abstract String toString(int depth);
@@ -20,4 +26,12 @@ public abstract class DTreeNode {
 	public abstract int getNbFNodes();
 	public abstract int getNbLeaves();
 	public abstract int getDepth();
+
+	public DTreeNode getParent() {
+		return parent;
+	}
+
+	public void setParent(FeatureDTreeNode parent) {
+		this.parent = parent;
+	}
 }

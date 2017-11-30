@@ -3,7 +3,6 @@ package fr.dcram.treetaggerj.dtree;
 import fr.dcram.treetaggerj.model.Feature;
 import fr.dcram.treetaggerj.model.ProbaTable;
 
-import java.util.Collections;
 import java.util.List;
 
 public class FeatureDTreeNode extends DTreeNode {
@@ -12,7 +11,8 @@ public class FeatureDTreeNode extends DTreeNode {
 	private DTreeNode yes;
 	private DTreeNode no;
 
-	public FeatureDTreeNode(Feature feature, DTreeNode yes, DTreeNode no) {
+	public FeatureDTreeNode(DTreeNode parent, Feature feature, DTreeNode yes, DTreeNode no) {
+		super(parent);
 		this.feature = feature;
 		this.yes = yes;
 		this.no = no;
@@ -51,6 +51,7 @@ public class FeatureDTreeNode extends DTreeNode {
 	public int getDepth() {
 		return 1 + Math.max(yes.getDepth(), no.getDepth());
 	}
+
 
 
 	public Feature getFeature() {

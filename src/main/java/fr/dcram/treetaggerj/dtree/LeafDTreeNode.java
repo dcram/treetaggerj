@@ -2,7 +2,6 @@ package fr.dcram.treetaggerj.dtree;
 
 import fr.dcram.treetaggerj.model.Feature;
 import fr.dcram.treetaggerj.model.ProbaTable;
-import fr.dcram.treetaggerj.model.Tag;
 
 import java.util.List;
 
@@ -11,8 +10,14 @@ public class LeafDTreeNode extends DTreeNode {
 
 	private ProbaTable table;
 
-	public LeafDTreeNode(ProbaTable table) {
+	public LeafDTreeNode(DTreeNode parent, ProbaTable table) {
+		super(parent);
 		this.table = table;
+	}
+
+
+	public ProbaTable getTable() {
+		return table;
 	}
 
 	@Override
@@ -44,4 +49,5 @@ public class LeafDTreeNode extends DTreeNode {
 	public int getDepth() {
 		return 0;
 	}
+
 }
