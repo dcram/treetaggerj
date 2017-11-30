@@ -2,6 +2,7 @@ package fr.dcram.treetaggerj;
 
 import fr.dcram.treetaggerj.dtree.FeatureDTreeNode;
 import fr.dcram.treetaggerj.dtree.LeafDTreeNode;
+import fr.dcram.treetaggerj.model.ProbaTable;
 import fr.dcram.treetaggerj.model.TagSet;
 import fr.dcram.treetaggerj.model.TaggingProbaTable;
 import fr.dcram.treetaggerj.util.TreeTaggerModelIO;
@@ -55,6 +56,12 @@ public class TaggerModelIOSpec {
 		Assertions.assertThat(yesYesNode.getTable().getProba(tagSet.getTag("PRP")))
 				.isEqualTo(78.0/251);
 
+
+		ProbaTable mangeraient = model.getLexicon().getSuffixTree().get("mangeraient");
+		Assertions.assertThat(mangeraient).isNotNull();
+		Assertions.assertThat(mangeraient.getTotalFrequency()).isEqualTo(7);
+		Assertions.assertThat(mangeraient.getProba(tagSet.getTag("VER:cond"))).isEqualTo(1.0/7);
+		Assertions.assertThat(mangeraient.getProba(tagSet.getTag("VER:impf"))).isEqualTo(6.0/7);
 
 	}
 

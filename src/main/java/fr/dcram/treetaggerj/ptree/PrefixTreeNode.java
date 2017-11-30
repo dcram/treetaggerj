@@ -37,14 +37,14 @@ public class PrefixTreeNode<T> {
 		if(string.isEmpty())
 			return value;
 		else {
-			if(value != null)
+			if(children != null) {
+				if(children.containsKey(string.charAt(0)))
+					return children.get(string.charAt(0)).get(string.substring(1));
+				else if(value != null)
+					return value;
+			} else if(value != null)
 				return value;
-			else if(children == null)
-				return null;
-			else if(!children.containsKey(string.charAt(0)))
-				return null;
-			else
-				return children.get(string.charAt(0)).get(string.substring(1));
+			return null;
 		}
 	}
 

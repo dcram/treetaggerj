@@ -31,14 +31,15 @@ public class TrainerFuncTest {
 
 	@Test
 	public void test() throws IOException {
-		trainer.getConfig().setsTreeWeightedInformationGainTh(8);
+		trainer.getConfig().setsTreeWeightedInformationGainTh(4);
 		TreeTaggerModel model = trainer.train(sequences);
 		System.out.println(model);
 		Assertions.assertThat(model.getDecisionTree().getRootNode().getDepth())
 				.isEqualTo(25);
+		Assertions.assertThat(model.getLexicon().getSuffixTree().getNbLeaves())
+				.isEqualTo(6);
 		Assertions.assertThat(model.getLexicon().getSuffixTree().getDepth())
 				.isEqualTo(5);
-		TreeTaggerModelIO.save(model, new FileWriter(Paths.get("src/test/resources/model1.json").toFile()));
 	}
 
 }

@@ -1786,8 +1786,140 @@
     "suffix-tree" : {
       "root" : {
         "children" : {
+          "e" : {
+            "children" : {
+              "l" : {
+                "children" : {
+                  "l" : {
+                    "children" : {
+                      "e" : {
+                        "children" : {
+                          "v" : {
+                            "children" : null,
+                            "table" : {
+                              "total" : 3,
+                              "tags" : {
+                                "ADJ" : 3
+                              }
+                            }
+                          }
+                        },
+                        "table" : {
+                          "total" : 2,
+                          "tags" : {
+                            "PRO:DEM" : 1,
+                            "VER:pres" : 1
+                          }
+                        }
+                      }
+                    },
+                    "table" : {
+                      "total" : 1,
+                      "tags" : {
+                        "VER:pres" : 1
+                      }
+                    }
+                  }
+                },
+                "table" : {
+                  "total" : 24,
+                  "tags" : {
+                    "ADJ" : 16,
+                    "NOM" : 7,
+                    "VER:subp" : 1
+                  }
+                }
+              }
+            },
+            "table" : {
+              "total" : 235,
+              "tags" : {
+                "NOM" : 138,
+                "ADJ" : 41,
+                "VER:pres" : 13,
+                "VER:pper" : 10,
+                "PRP" : 6,
+                "ADV" : 6,
+                "VER:infi" : 6,
+                "NUM" : 6,
+                "KON" : 5,
+                "PRO:DEM" : 4
+              }
+            }
+          },
           "s" : {
             "children" : {
+              "e" : {
+                "children" : {
+                  "r" : {
+                    "children" : {
+                      "t" : {
+                        "children" : {
+                          "u" : {
+                            "children" : null,
+                            "table" : {
+                              "total" : 6,
+                              "tags" : {
+                                "ADJ" : 6
+                              }
+                            }
+                          }
+                        },
+                        "table" : {
+                          "total" : 2,
+                          "tags" : {
+                            "NOM" : 2
+                          }
+                        }
+                      }
+                    },
+                    "table" : {
+                      "total" : 18,
+                      "tags" : {
+                        "NOM" : 13,
+                        "ADJ" : 4,
+                        "NUM" : 1
+                      }
+                    }
+                  },
+                  "u" : {
+                    "children" : {
+                      "q" : {
+                        "children" : {
+                          "i" : {
+                            "children" : null,
+                            "table" : {
+                              "total" : 5,
+                              "tags" : {
+                                "ADJ" : 5
+                              }
+                            }
+                          }
+                        },
+                        "table" : {
+                          "total" : 5,
+                          "tags" : {
+                            "NOM" : 4,
+                            "PRO:IND" : 1
+                          }
+                        }
+                      }
+                    },
+                    "table" : null
+                  }
+                },
+                "table" : {
+                  "total" : 87,
+                  "tags" : {
+                    "NOM" : 56,
+                    "ADJ" : 16,
+                    "VER:pper" : 9,
+                    "PRO:IND" : 3,
+                    "PRO:DEM" : 2,
+                    "PRO:REL" : 1
+                  }
+                }
+              },
               "r" : {
                 "children" : {
                   "u" : {
@@ -1802,12 +1934,20 @@
                                 "NOM" : 7
                               }
                             }
+                          },
+                          "i" : {
+                            "children" : null,
+                            "table" : {
+                              "total" : 4,
+                              "tags" : {
+                                "PRO:IND" : 4
+                              }
+                            }
                           }
                         },
                         "table" : {
-                          "total" : 6,
+                          "total" : 2,
                           "tags" : {
-                            "PRO:IND" : 4,
                             "ADV" : 2
                           }
                         }
@@ -1833,46 +1973,103 @@
               }
             },
             "table" : {
-              "total" : 246,
+              "total" : 123,
               "tags" : {
-                "NOM" : 141,
-                "ADJ" : 60,
-                "VER:pper" : 24,
+                "NOM" : 66,
+                "ADJ" : 29,
+                "VER:pper" : 15,
                 "PRP" : 4,
-                "PRO:IND" : 4,
-                "NUM" : 4,
-                "PRO:REL" : 2,
-                "PRO:DEM" : 2,
+                "NUM" : 3,
                 "ADV" : 2,
                 "KON" : 1,
+                "PRO:REL" : 1,
                 "VER:simp" : 1,
                 "VER:pres" : 1
+              }
+            }
+          },
+          "t" : {
+            "children" : {
+              "n" : {
+                "children" : {
+                  "e" : {
+                    "children" : {
+                      "i" : {
+                        "children" : {
+                          "a" : {
+                            "children" : null,
+                            "table" : {
+                              "total" : 7,
+                              "tags" : {
+                                "VER:impf" : 6,
+                                "VER:cond" : 1
+                              }
+                            }
+                          }
+                        },
+                        "table" : {
+                          "total" : 5,
+                          "tags" : {
+                            "VER:pres" : 5
+                          }
+                        }
+                      }
+                    },
+                    "table" : {
+                      "total" : 55,
+                      "tags" : {
+                        "NOM" : 26,
+                        "ADV" : 19,
+                        "VER:pres" : 9,
+                        "VER:simp" : 1
+                      }
+                    }
+                  }
+                },
+                "table" : {
+                  "total" : 30,
+                  "tags" : {
+                    "VER:ppre" : 12,
+                    "NOM" : 8,
+                    "PRP" : 6,
+                    "ADV" : 2,
+                    "ADJ" : 1,
+                    "VER:futu" : 1
+                  }
+                }
+              }
+            },
+            "table" : {
+              "total" : 61,
+              "tags" : {
+                "NOM" : 30,
+                "VER:impf" : 18,
+                "ADJ" : 5,
+                "VER:pres" : 3,
+                "VER:cond" : 3,
+                "ADV" : 1,
+                "VER:pper" : 1
               }
             }
           }
         },
         "table" : {
-          "total" : 786,
+          "total" : 363,
           "tags" : {
-            "NOM" : 390,
-            "ADJ" : 111,
-            "VER:pper" : 57,
-            "ADV" : 44,
-            "VER:infi" : 36,
-            "VER:pres" : 35,
-            "VER:impf" : 24,
-            "PRP" : 22,
-            "NUM" : 14,
-            "VER:ppre" : 12,
-            "KON" : 10,
-            "VER:simp" : 9,
-            "VER:futu" : 8,
-            "PRO:DEM" : 5,
-            "VER:cond" : 4,
+            "NOM" : 181,
+            "VER:pper" : 46,
+            "ADJ" : 45,
+            "VER:infi" : 30,
+            "ADV" : 16,
+            "PRP" : 10,
+            "NUM" : 8,
+            "VER:simp" : 8,
+            "VER:futu" : 7,
+            "KON" : 5,
+            "VER:pres" : 3,
             "NAM" : 2,
             "PRO:PER" : 1,
-            "VER:subi" : 1,
-            "VER:subp" : 1
+            "VER:subi" : 1
           }
         }
       }
