@@ -7,28 +7,32 @@ import fr.dcram.treetaggerj.util.FeatureSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * WARNING: not thread-safe
+ *
+ * @author Damien Cram
+ */
 public class Tagger {
 
 	private DTree decisionTree;
 	private Lexicon lexicon;
 	private TagSet tagSet;
 	private FeatureSet featureSet;
+	private TreeTaggerModel model;
+	Tag beforeLast, last;
 
 
-	private Tag beforeLast, last = tagSet.getStartTag();
-
-
-	public Tag tagToken(Token token) {
-		Tag tag;
-		TaggingProbaTable aprioriTable = (TaggingProbaTable)lexicon.getTable(token.getText());
-		TaggingProbaTable lastNTable = (TaggingProbaTable)decisionTree.getTable(toFeatureList());
-		tag = getMostProbable(aprioriTable, lastNTable);
-		beforeLast = last;
-		last = tag;
-		return tag;
+	public Tagger(TreeTaggerModel model) {
+		this.decisionTree = model.getDecisionTree();
+		this.lexicon = model.getLexicon();
+		this.tagSet = model.getTagSet();
+		this.featureSet = model.getFeatureSet();
+		this.beforeLast = tagSet.getStartTag();
+		this.last = tagSet.getStartTag();
+		this.model = model;
 	}
 
-	private List<Feature> toFeatureList() {
+	private List<Feature> toFeatureList(Tag beforeLast, Tag last) {
 		List<Feature> features = new ArrayList<>(2);
 		features.add(featureSet.getFeature(beforeLast.getLabel(), 2));
 		features.add(featureSet.getFeature(last.getLabel(), 1));
@@ -47,4 +51,19 @@ public class Tagger {
 		}
 		return tag;
 	}
+
+	public Tag tag(String token) {
+		Tag tag = tagToken(beforeLast, last, token);
+		beforeLast = last;
+		last = tag;
+		return tag;
+	}
+
+
+	private Tag tagToken(Tag beforeLast, Tag last, String tok) {
+		TaggingProbaTable aprioriTable = (TaggingProbaTable)lexicon.getTable(tok);
+		TaggingProbaTable lastNTable = (TaggingProbaTable)decisionTree.getTable(toFeatureList(beforeLast, last));
+		return getMostProbable(aprioriTable, lastNTable);
+	}
+
 }

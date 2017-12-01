@@ -12,6 +12,11 @@ public class Token {
 		this.text = text;
 	}
 
+	public Token(String s, Tag tag) {
+		this(s);
+		this.tag = tag;
+	}
+
 	public void setTag(Tag tag) {
 		this.tag = tag;
 	}

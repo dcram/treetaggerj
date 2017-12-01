@@ -53,5 +53,7 @@ public class TreeTaggerModel {
 		this.featureSet = featureSet;
 	}
 
-
+	public FeatureSet getFeatureSet() {
+		return featureSet;
+	}
 }

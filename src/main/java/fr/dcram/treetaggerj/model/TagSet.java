@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class TagSet {
+	public static final String UNK = "UNK";
+	public static final String START = "START";
 	private Tag defaultTag;
 	private Tag startTag;
 	private Map<String, Tag> tags = new HashMap<>();
@@ -12,7 +14,7 @@ public class TagSet {
 	private AtomicInteger id = new AtomicInteger(0);
 
 	public TagSet() {
-		this("DefaultTag", "START");
+		this(UNK, START);
 	}
 
 	public TagSet(String defaultTagLabel, String startLabel) {
