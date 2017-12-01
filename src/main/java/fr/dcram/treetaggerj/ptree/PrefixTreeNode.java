@@ -34,18 +34,13 @@ public class PrefixTreeNode<T> {
 	}
 
 	public T get(String string) {
-		if(string.isEmpty())
-			return value;
-		else {
+		if(!string.isEmpty()) {
 			if(children != null) {
 				if(children.containsKey(string.charAt(0)))
 					return children.get(string.charAt(0)).get(string.substring(1));
-				else if(value != null)
-					return value;
-			} else if(value != null)
-				return value;
-			return null;
+			}
 		}
+		return getNotNullValue();
 	}
 
 	public void add(String prefix, T value) {
@@ -156,5 +151,13 @@ public class PrefixTreeNode<T> {
 
 	public Map<Character, PrefixTreeNode<T>> getChildren() {
 		return children;
+	}
+
+	public T getNotNullValue() {
+		return value != null ? value : (parent != null ? parent.getNotNullValue() : null);
+	}
+
+	public void setParent(PrefixTreeNode<T> parent) {
+		this.parent = parent;
 	}
 }
