@@ -7,6 +7,8 @@ import fr.dcram.treetaggerj.dtree.DTree;
 import fr.dcram.treetaggerj.model.Feature;
 import fr.dcram.treetaggerj.model.ProbaTable;
 import fr.dcram.treetaggerj.model.TagSet;
+import fr.dcram.treetaggerj.ptree.PrefixTreeNode;
+import fr.dcram.treetaggerj.ptree.SuffixTree;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -36,8 +38,19 @@ public class TreeTaggerModelIO {
 		TreeTaggerModel treeTaggerModel = mapper.readValue(reader, TreeTaggerModel.class);
 		treeTaggerModel.setTagSet(tagSet);
 		treeTaggerModel.setFeatureSet(featureSet);
-
+		fixSuffixTree(treeTaggerModel.getLexicon().getSuffixTree());
 		return treeTaggerModel;
+	}
+
+	private static void fixSuffixTree(SuffixTree suffixTree) {
+		fixSuffixTreeNode(null, suffixTree.getRoot());
+	}
+
+	private static void fixSuffixTreeNode(PrefixTreeNode<ProbaTable> parent, PrefixTreeNode<ProbaTable> node) {
+		node.setParent(parent);
+		if(node.getChildren() !=  null)
+			for(PrefixTreeNode<ProbaTable> child:node.getChildren().values())
+				fixSuffixTreeNode(node, child);
 	}
 
 }
