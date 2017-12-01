@@ -21,6 +21,7 @@ sourceSets {
     }
     test {
         compileClasspath += sourceSets.train.runtimeClasspath
+        runtimeClasspath += sourceSets.train.runtimeClasspath
     }
 }
 dependencies {
