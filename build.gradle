@@ -1,7 +1,12 @@
+plugins {
+    id "com.jfrog.bintray" version "1.8.0"
+}
+
 group 'fr.dcram'
 version '1.0'
 
 apply plugin: 'java'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = 1.8
 
@@ -79,4 +84,30 @@ task jcasgen(type: JavaExec) {
     systemProperty 'uima.datapath', "$projectDir/desc"
     main = 'org.apache.uima.tools.jcasgen.Jg'
     args = ['-jcasgeninput', srcFile, '-jcasgenoutput', outputDir]
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['mavenJava']
+    pkg {
+        repo = 'maven'
+        name = 'TreeTaggerJ'
+        userOrg = 'pompadour'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/dcram/treetaggerj.git'
+        version {
+            name = version
+            desc = "TreeTaggerJ $version"
+            released  = new Date()
+        }
+    }
 }
