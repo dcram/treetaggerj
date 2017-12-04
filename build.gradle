@@ -49,6 +49,9 @@ dependencies {
     trainCompile group: 'com.google.guava', name: 'guava', version: '23.5-jre'
 }
 
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
 
 // gradle -Plang=fr -PsrcFile=/path/to/src -PsrcFile=/path/to/target getTags
 task getTags(type: JavaExec) {
@@ -90,6 +93,10 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
         }
     }
 }
@@ -98,6 +105,8 @@ bintray {
     user = System.getenv('BINTRAY_USER')
     key = System.getenv('BINTRAY_KEY')
     publications = ['mavenJava']
+    override = true //[Default: false] Whether to override version artifacts already published
+    publish = true
     pkg {
         repo = 'maven'
         name = 'TreeTaggerJ'
@@ -105,8 +114,8 @@ bintray {
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/dcram/treetaggerj.git'
         version {
-            name = version
-            desc = "TreeTaggerJ $version"
+            name = project.property('version')
+            desc = "TreeTaggerJ " + project.property('version')
             released  = new Date()
         }
     }
