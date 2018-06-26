@@ -1,19 +1,15 @@
 import Dependencies._
-import SparklaneSbt._
-import sbt._
 
-import sbtdocker.DockerPlugin.autoImport.ImageName
-import SparklaneSbt.dockerImageName
-
-organization := "fr.univ-nantes.julestar"
-version:= "1.1"
+organization := "fr.dcram"
+version:= "1.0"
 
 // runtime
-libraryDependencies ++= uimaCore
-libraryDependencies ++= uimaFit
+libraryDependencies ++= trove4j
+libraryDependencies ++= jacksonDatabind
+libraryDependencies ++= jacksonAnnotations
+
 
 // testing
 libraryDependencies ++= javaTesting
-libraryDependencies ++= uimaTest
 
 
