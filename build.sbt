@@ -8,7 +8,6 @@ libraryDependencies ++= trove4j
 libraryDependencies ++= jacksonDatabind
 libraryDependencies ++= jacksonAnnotations
 
-
 // testing
 libraryDependencies ++= javaTesting
 
